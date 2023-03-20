@@ -25,7 +25,7 @@ function App() {
           </GridItem>
         </Show>
 
-        <GridItem area='main' marginTop='10vh'>
+        <GridItem area='main'>
           <Routes>
             <Route path='/' element={<>Home</>} />
             <Route path='/search' element={<>Search</>} />

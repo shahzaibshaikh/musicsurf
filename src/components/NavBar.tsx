@@ -4,11 +4,8 @@ import BrandImage from '../assets/Spotify_Logo_RGB_White.png';
 function NavBar() {
   return (
     <HStack
-      position='fixed'
-      height='10vh'
-      padding={7}
+      padding='16px 28px'
       background='black'
-      width='100%'
       alignItems='center'
       justifyContent='space-between'
     >
