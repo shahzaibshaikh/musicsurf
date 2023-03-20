@@ -21,8 +21,16 @@ const menuOptions = [
 
 function SideMenu(): JSX.Element {
   return (
-    <Box height='92vh' marginTop={10} fontWeight={600} fontSize={13}>
-      <List paddingLeft={6} spacing={5}>
+    <Box
+      height='92vh'
+      paddingTop={10}
+      fontWeight={600}
+      fontSize={13}
+      background='black'
+      position='fixed'
+      top='8vh'
+    >
+      <List paddingLeft={6} paddingRight={24} spacing={5}>
         {menuOptions.map(option => (
           <ListItem key={option.id}>
             <Link as={ReactLink} to={option.path} _hover={{ textDecoration: 'none' }}>

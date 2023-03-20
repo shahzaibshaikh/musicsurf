@@ -1,5 +1,6 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import SideMenu from './components/SideMenu';
 
 function App() {
@@ -12,11 +13,11 @@ function App() {
         }}
         gridTemplateColumns={{
           base: '1fr',
-          lg: '250px'
+          lg: '240px'
         }}
       >
         <GridItem area='nav'>
-          <div style={{ height: '8vh' }}>Nav</div>
+          <NavBar />
         </GridItem>
         <Show above='lg'>
           <GridItem area='aside'>
@@ -24,7 +25,7 @@ function App() {
           </GridItem>
         </Show>
 
-        <GridItem area='main'>
+        <GridItem area='main' marginTop='8vh'>
           <Routes>
             <Route path='/' element={<>Home</>} />
             <Route path='/search' element={<>Search</>} />
