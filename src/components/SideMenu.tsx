@@ -1,13 +1,4 @@
-import {
-  Box,
-  HStack,
-  Icon,
-  Link,
-  LinkOverlay,
-  List,
-  ListItem,
-  Text
-} from '@chakra-ui/react';
+import { Box, HStack, Icon, Link, List, ListItem, Text } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import { SiGooglehome } from 'react-icons/si';
 import { FaSearch } from 'react-icons/fa';
@@ -22,13 +13,13 @@ const menuOptions = [
 function SideMenu(): JSX.Element {
   return (
     <Box
-      height='92vh'
+      height='90vh'
       paddingTop={10}
       fontWeight={600}
       fontSize={13}
       background='black'
       position='fixed'
-      top='8vh'
+      top='10vh'
     >
       <List paddingLeft={6} paddingRight={24} spacing={5}>
         {menuOptions.map(option => (
