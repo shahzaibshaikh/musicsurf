@@ -1,27 +1,38 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SideMenu from './components/SideMenu';
 
 function App() {
   return (
-    <Grid
-      templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`
-      }}
-    >
-      <GridItem area='nav' bg='red'>
-        Nav
-      </GridItem>
-      <Show above='lg'>
-        <GridItem area='aside' bg='blue'>
-          Aside
+    <BrowserRouter>
+      <Grid
+        templateAreas={{
+          base: `"nav" "main"`,
+          lg: `"nav nav" "aside main"`
+        }}
+        gridTemplateColumns={{
+          base: '1fr',
+          lg: '250px'
+        }}
+      >
+        <GridItem area='nav'>
+          <div style={{ height: '8vh' }}>Nav</div>
         </GridItem>
-      </Show>
+        <Show above='lg'>
+          <GridItem area='aside'>
+            <SideMenu />
+          </GridItem>
+        </Show>
 
-      <GridItem area='main' bg='yellow'>
-        Main
-      </GridItem>
-    </Grid>
+        <GridItem area='main'>
+          <Routes>
+            <Route path='/' element={<>Home</>} />
+            <Route path='/search' element={<>Search</>} />
+            <Route path='/library' element={<>Library</>} />
+          </Routes>
+        </GridItem>
+      </Grid>
+    </BrowserRouter>
   );
 }
 
