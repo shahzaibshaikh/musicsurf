@@ -14,14 +14,14 @@ function SideMenu(): JSX.Element {
   return (
     <Box
       height='90vh'
-      paddingTop={10}
+      paddingTop={8}
       fontWeight={600}
       fontSize={13}
       background='black'
       position='fixed'
       top='10vh'
     >
-      <List paddingLeft={6} paddingRight={24} spacing={5}>
+      <List paddingLeft={7} paddingRight={24} spacing={5}>
         {menuOptions.map(option => (
           <ListItem key={option.id}>
             <Link as={ReactLink} to={option.path} _hover={{ textDecoration: 'none' }}>

@@ -6,7 +6,7 @@ function NavBar() {
     <HStack
       position='fixed'
       height='10vh'
-      padding={5}
+      padding={7}
       background='black'
       width='100%'
       alignItems='center'
