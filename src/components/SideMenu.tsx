@@ -3,12 +3,20 @@ import { Link as ReactLink } from 'react-router-dom';
 import { SiGooglehome } from 'react-icons/si';
 import { FaSearch } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5';
+import { BsPersonCircle } from 'react-icons/bs';
 import BrandImage from '../assets/bitmap.svg';
 
 const menuOptions = [
   { id: 1, name: 'Home', slug: 'home', path: '/', icon: SiGooglehome },
   { id: 2, name: 'Search', slug: 'search', path: '/search', icon: FaSearch },
-  { id: 3, name: 'Your Library', slug: 'library', path: '/library', icon: IoLibrary }
+  {
+    id: 3,
+    name: 'Artists',
+    slug: 'artist',
+    path: '/artist',
+    icon: BsPersonCircle
+  },
+  { id: 4, name: 'Your Library', slug: 'library', path: '/library', icon: IoLibrary }
 ];
 
 interface SideMenuProps {
