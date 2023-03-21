@@ -17,7 +17,7 @@ a {
   background: black;
   align-items: center;
   justify-content: space-between;
-  height: 9vh;
+  height: 70px;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -25,25 +25,30 @@ a {
 
 /* Side Menu Styline */
 .side-menu-container {
-  padding-top: 32px;
   font-weight: 600;
   font-size: 13px;
   background: black;
-  height: 91vh;
+  height: 100vh;
   position: fixed;
   width: 240px;
-  top: 9vh;
 }
 
 /* Main Grid Styling */
 .main-grid-container {
   background: linear-gradient(180deg, rgba(25, 25, 25, 1) 0%, rgba(18, 18, 18, 1) 100%);
-  margin-top: 9vh;
+  margin-top: 70px;
   padding: 28px;
 }
 
 /* Search Grid Styles */
 .search-grid-container {
-  margin-top: 9vh;
+  margin-top: 70px;
   padding: 28px;
+}
+
+/* Horizontal line styles */
+.line {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  background: #121212;
 }

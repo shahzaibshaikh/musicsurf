@@ -4,6 +4,7 @@ import { BsSearch } from 'react-icons/bs';
 function SearchInput(): JSX.Element {
   return (
     <form
+      style={{ width: '100%' }}
       onSubmit={event => {
         event.preventDefault();
       }}
@@ -13,7 +14,7 @@ function SearchInput(): JSX.Element {
 
         <Input
           width={{
-            md: '300px',
+            base: '100%',
             lg: '530px'
           }}
           borderRadius={20}

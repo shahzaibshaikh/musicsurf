@@ -22,6 +22,7 @@ function SearchGrid(): JSX.Element {
         <CategoryCard cardColor={randomColor({ luminosity: 'dark' })} />
         <CategoryCard cardColor={randomColor({ luminosity: 'dark' })} />
       </SimpleGrid>
+      <hr className='line' />
     </Box>
   );
 }

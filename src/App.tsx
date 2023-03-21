@@ -20,7 +20,7 @@ function App(): JSX.Element {
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`
+          lg: `"aside nav" "aside main"`
         }}
         gridTemplateColumns={{
           base: '1fr',

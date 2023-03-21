@@ -1,8 +1,9 @@
-import { Box, HStack, Icon, Link, List, ListItem, Text } from '@chakra-ui/react';
+import { Box, HStack, Icon, Image, Link, List, ListItem, Text } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import { SiGooglehome } from 'react-icons/si';
 import { FaSearch } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5';
+import BrandImage from '../assets/bitmap.svg';
 
 const menuOptions = [
   { id: 1, name: 'Home', slug: 'home', path: '/', icon: SiGooglehome },
@@ -18,7 +19,8 @@ interface SideMenuProps {
 function SideMenu({ setOnSearch, selectedPage }: SideMenuProps): JSX.Element {
   return (
     <Box className='side-menu-container'>
-      <List paddingLeft={7} spacing={5}>
+      <Image src={BrandImage} height='25px' marginTop={5} marginLeft={7} />
+      <List paddingLeft={7} spacing={5} marginTop={14}>
         {menuOptions.map(option => (
           <ListItem key={option.id} onClick={() => setOnSearch(option.slug)}>
             <Link as={ReactLink} to={option.path} _hover={{ textDecoration: 'none' }}>

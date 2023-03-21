@@ -15,6 +15,7 @@ function HomeGrid(): JSX.Element {
         <HomeCard />
         <HomeCard />
       </SimpleGrid>
+      <hr className='line' />
     </Box>
   );
 }
