@@ -1,9 +1,10 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomeGrid from './components/HomeGrid';
 import NavBar from './components/NavBar';
 import SideMenu from './components/SideMenu';
 
-function App() {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Grid
@@ -27,7 +28,7 @@ function App() {
 
         <GridItem area='main'>
           <Routes>
-            <Route path='/' element={<>Home</>} />
+            <Route path='/' element={<HomeGrid />} />
             <Route path='/search' element={<>Search</>} />
             <Route path='/library' element={<>Library</>} />
           </Routes>

@@ -1,5 +1,5 @@
 import { Box, Button, HStack, Image } from '@chakra-ui/react';
-import BrandImage from '../assets/Spotify_Logo_RGB_White.png';
+import BrandImage from '../assets/bitmap.svg';
 
 function NavBar() {
   return (
@@ -9,7 +9,7 @@ function NavBar() {
       alignItems='center'
       justifyContent='space-between'
     >
-      <Image src={BrandImage} height='40px' />
+      <Image src={BrandImage} height='25px' />
       <HStack>
         <Button borderRadius={20} padding={5} variant='ghost' fontSize={13}>
           Sign up
