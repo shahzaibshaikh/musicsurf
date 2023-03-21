@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import HomeGrid from './components/HomeGrid';
 import NavBar from './components/NavBar';
+import SearchGrid from './components/SearchGrid';
 import SideMenu from './components/SideMenu';
 
 function App(): JSX.Element {
@@ -45,7 +46,7 @@ function App(): JSX.Element {
         <GridItem area='main'>
           <Routes>
             <Route path='/' element={<HomeGrid />} />
-            <Route path='/search' element={<>Search</>} />
+            <Route path='/search' element={<SearchGrid />} />
             <Route path='/library' element={<>Library</>} />
           </Routes>
         </GridItem>
