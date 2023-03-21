@@ -10,3 +10,34 @@
 a {
   text-decoration: none;
 }
+
+/* Navbar Styling */
+.nav-styles {
+  padding: 16px 28px;
+  background: black;
+  align-items: center;
+  justify-content: space-between;
+  height: 9vh;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Side Menu Styline */
+.side-menu-container {
+  padding-top: 32px;
+  font-weight: 600;
+  font-size: 13px;
+  background: black;
+  height: 91vh;
+  position: fixed;
+  width: 240px;
+  top: 9vh;
+}
+
+/* Main Grid Styling */
+.main-grid-container {
+  background: linear-gradient(180deg, rgba(25, 25, 25, 1) 0%, rgba(18, 18, 18, 1) 100%);
+  margin-top: 9vh;
+  padding: 28px;
+}

@@ -5,21 +5,26 @@ import { FaSearch } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5';
 
 const menuOptions = [
-  { id: 1, name: 'Home', path: '/', icon: SiGooglehome },
-  { id: 2, name: 'Search', path: '/search', icon: FaSearch },
-  { id: 3, name: 'Your Library', path: '/library', icon: IoLibrary }
+  { id: 1, name: 'Home', slug: 'home', path: '/', icon: SiGooglehome },
+  { id: 2, name: 'Search', slug: 'search', path: '/search', icon: FaSearch },
+  { id: 3, name: 'Your Library', slug: 'library', path: '/library', icon: IoLibrary }
 ];
 
-function SideMenu(): JSX.Element {
+interface SideMenuProps {
+  setOnSearch: (page: string) => void;
+  selectedPage: string;
+}
+
+function SideMenu({ setOnSearch, selectedPage }: SideMenuProps): JSX.Element {
   return (
-    <Box height='90vh' paddingTop={8} fontWeight={600} fontSize={13} background='black'>
+    <Box className='side-menu-container'>
       <List paddingLeft={7} spacing={5}>
         {menuOptions.map(option => (
-          <ListItem key={option.id}>
+          <ListItem key={option.id} onClick={() => setOnSearch(option.slug)}>
             <Link as={ReactLink} to={option.path} _hover={{ textDecoration: 'none' }}>
               <HStack
                 spacing={5}
-                color='gray.300'
+                color={option.slug === selectedPage ? 'white' : 'gray.300'}
                 _hover={{ transition: '300ms', color: 'white' }}
               >
                 <Icon as={option.icon} boxSize={5} />

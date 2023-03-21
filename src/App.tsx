@@ -1,10 +1,19 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import HomeGrid from './components/HomeGrid';
 import NavBar from './components/NavBar';
 import SideMenu from './components/SideMenu';
 
 function App(): JSX.Element {
+  const [selectedPage, setSelectedPage] = useState<string>('');
+
+  useEffect(() => {
+    if (window.location.pathname === '/search') {
+      setSelectedPage('search');
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Grid
@@ -17,15 +26,22 @@ function App(): JSX.Element {
           lg: '240px'
         }}
       >
+        {/* Navbar */}
         <GridItem area='nav'>
           <NavBar />
         </GridItem>
+
+        {/* Side Menu */}
         <Show above='lg'>
           <GridItem area='aside'>
-            <SideMenu />
+            <SideMenu
+              selectedPage={selectedPage}
+              setOnSearch={(page: string) => setSelectedPage(page)}
+            />
           </GridItem>
         </Show>
 
+        {/* Main Page */}
         <GridItem area='main'>
           <Routes>
             <Route path='/' element={<HomeGrid />} />
