@@ -6,7 +6,7 @@ interface CategoryCardProps {
 
 function CategoryCard({ cardColor }: CategoryCardProps): JSX.Element {
   return (
-    <Card background={cardColor} padding={4} borderRadius={5} height='210px'>
+    <Card background={cardColor} padding={4} borderRadius={8} height='210px'>
       <CardBody padding='8px 0 0 0'>
         <Heading fontSize='24px'>Title</Heading>
       </CardBody>
