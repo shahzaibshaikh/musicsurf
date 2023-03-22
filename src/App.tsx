@@ -1,18 +1,23 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import HomeGrid from './components/HomeGrid';
 import NavBar from './components/NavBar';
 import SearchGrid from './components/SearchGrid';
 import SideMenu from './components/SideMenu';
+import { authorizeSpotify } from './store/actions/authorizeSpotify';
 
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
+  const dispatch = useDispatch<any>();
+  const { loading, error, token } = useSelector((state: any) => state.spotify);
 
   useEffect(() => {
     if (window.location.pathname === '/search') {
       setSelectedPage('search');
     }
+    dispatch(authorizeSpotify());
   }, []);
 
   return (
