@@ -6,7 +6,7 @@ import HomeGrid from './components/HomeGrid';
 import NavBar from './components/NavBar';
 import SearchGrid from './components/SearchGrid';
 import SideMenu from './components/SideMenu';
-import { authorizeSpotify } from './store/actions/authorizeSpotify';
+import { setToken } from './store/slices/spotifySlice';
 
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
@@ -17,8 +17,31 @@ function App(): JSX.Element {
     if (window.location.pathname === '/search') {
       setSelectedPage('search');
     }
-    if (!token) dispatch(authorizeSpotify());
-  }, []);
+    if (!token) {
+      // check if token exists
+      const hashParams = window.location.hash
+        .substring(1)
+        .split('&')
+        .reduce(function (result: any, item: string) {
+          var parts = item.split('=');
+          result[parts[0]] = parts[1];
+          return result;
+        }, {});
+
+      if (hashParams.access_token) {
+        dispatch(setToken(hashParams.access_token));
+      } else {
+        const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+        const REDIRECT_URI: any = import.meta.env.VITE_REDIRECT_URI;
+        const SCOPE = 'user-read-private%20user-read-email';
+        const STATE = 'spotify-auth';
+
+        const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&state=${STATE}`;
+
+        window.location.href = url;
+      }
+    }
+  }, [dispatch, token]);
 
   return (
     <BrowserRouter>
