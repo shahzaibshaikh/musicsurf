@@ -3,13 +3,15 @@ import HomeCard from './HomeCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAlbums } from '../store/actions/album';
 import { useEffect } from 'react';
+import { AlbumData } from '../store/slices/albumSlice';
 
 function HomeGrid(): JSX.Element {
   const { loading, error, data } = useSelector((state: any) => state.albums);
+  const { token } = useSelector((state: any) => state.spotify);
   const dispatch = useDispatch<any>();
   useEffect(() => {
-    dispatch(fetchAlbums());
-  }, [dispatch]);
+    if (token) dispatch(fetchAlbums(token));
+  }, []);
 
   return (
     <Box className='main-grid-container'>

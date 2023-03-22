@@ -18,7 +18,7 @@ interface Albums {
   name: string;
   images: AlbumImages[];
 }
-interface AlbumData {
+export interface AlbumData {
   total: number;
   items: Albums[];
 }

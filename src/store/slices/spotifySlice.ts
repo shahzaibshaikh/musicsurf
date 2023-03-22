@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface SpotifyState {
+export interface SpotifyState {
   loading: boolean;
   error: string | null;
   token: string | null;
