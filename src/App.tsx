@@ -17,8 +17,7 @@ function App(): JSX.Element {
     if (window.location.pathname === '/search') {
       setSelectedPage('search');
     }
-
-    dispatch(authorizeSpotify());
+    if (!token) dispatch(authorizeSpotify());
   }, []);
 
   return (
