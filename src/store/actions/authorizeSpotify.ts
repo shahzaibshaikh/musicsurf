@@ -5,12 +5,12 @@ export const authorizeSpotify = createAsyncThunk(
   'spotify/authorizeSpotify',
   async (_, thunkAPI) => {
     try {
-      const clientId = import.meta.env.CLIENT_ID;
-      const redirectUri: any = import.meta.env.REDIRECT_URI;
-      const scope = 'user-read-private user-read-email';
-      const state = 'spotify-auth';
+      const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+      const REDIRECT_URI: any = import.meta.env.VITE_REDIRECT_URI;
+      const SCOPE = 'user-read-private%20user-read-email';
+      const STATE = 'spotify-auth';
 
-      const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=c61c183c649b4ffd98d3ae436fcf1d87&redirect_uri=http://localhost:5173/&scope=user-read-private%20user-read-email&state=spotify-auth`;
+      const url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&state=${STATE}`;
       window.location.href = url;
 
       const hashParams = window.location.hash
