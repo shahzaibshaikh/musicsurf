@@ -6,7 +6,6 @@ import useAlbums from '../hooks/useAlbums';
 
 function HomeGrid(): JSX.Element {
   const { loading, error, data } = useAlbums();
-  const { token } = useSelector((state: any) => state.spotify);
 
   return (
     <Box className='main-grid-container'>

@@ -11,11 +11,6 @@ import useSpotify from './hooks/useSpotify';
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
   const { loading, error, token } = useSpotify();
-  useEffect(() => {
-    if (window.location.pathname === '/search') {
-      setSelectedPage('search');
-    }
-  }, []);
 
   return (
     <BrowserRouter>
