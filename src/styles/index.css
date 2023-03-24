@@ -14,13 +14,14 @@ a {
 /* Navbar Styling */
 .nav-styles {
   padding: 16px 28px;
-  background: black;
+  background: rgba(0, 0, 0, 0.3);
   align-items: center;
   justify-content: space-between;
   height: 70px;
   position: fixed;
   width: 100%;
   z-index: 10;
+  backdrop-filter: blur(7px);
 }
 
 /* Side Menu Styline */
