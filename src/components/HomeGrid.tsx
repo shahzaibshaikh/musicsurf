@@ -1,17 +1,12 @@
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import HomeCard from './HomeCard';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAlbums } from '../store/actions/album';
-import { useEffect } from 'react';
-import { AlbumData } from '../store/slices/albumSlice';
+import { useSelector } from 'react-redux';
+
+import useAlbums from '../hooks/useAlbums';
 
 function HomeGrid(): JSX.Element {
-  const { loading, error, data } = useSelector((state: any) => state.albums);
+  const { loading, error, data } = useAlbums();
   const { token } = useSelector((state: any) => state.spotify);
-  const dispatch = useDispatch<any>();
-  useEffect(() => {
-    if (token) dispatch(fetchAlbums(token));
-  }, []);
 
   return (
     <Box className='main-grid-container'>

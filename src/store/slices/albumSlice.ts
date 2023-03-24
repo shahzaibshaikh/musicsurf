@@ -47,6 +47,7 @@ const albumSlice = createSlice({
     },
     setData: (state, action: PayloadAction<AlbumData>) => {
       state.data = action.payload;
+      state.error = null;
     }
   }
 });
