@@ -15,6 +15,9 @@ function useAlbums<AlbumState>(token: string) {
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
+          },
+          params: {
+            limit: 50
           }
         });
         dispatch(setData(response.data));

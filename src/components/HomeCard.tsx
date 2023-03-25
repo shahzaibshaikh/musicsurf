@@ -1,12 +1,16 @@
 import { Card, CardBody, Heading, Image, Text } from '@chakra-ui/react';
 import placeholderImage from '../assets/255-2554719_a-generic-square-placeholder-image-with-rounded-corners.png';
 import { AlbumData, Albums } from '../store/slices/albumSlice';
+import formatList from '../utilities/textFormatter';
 
 interface HomeCardProps {
   data?: Albums;
 }
 
 function HomeCard({ data }: HomeCardProps) {
+  const artistList: string[] | undefined = data?.artists.map(artist => artist.name);
+  const formattedList = artistList ? formatList(artistList) : '';
+
   return (
     <Card
       background='#1b1b1b'
@@ -18,23 +22,16 @@ function HomeCard({ data }: HomeCardProps) {
       <Image
         src={data?.images[1].url}
         borderRadius={5}
-        boxShadow='0 10px 12px rgba(0, 0, 0, .4)'
+        boxShadow='0 8px 8px rgba(0, 0, 0, .4)'
       />
       <CardBody padding={0} marginTop={4}>
         <Heading size='1xl' marginBottom={1}>
           {data?.name}
         </Heading>
-        {data?.artists.map(artist => (
-          <Text
-            key={artist.id}
-            fontSize='13px'
-            color='gray.300'
-            fontWeight={500}
-            lineHeight={1.7}
-          >
-            {artist.name}
-          </Text>
-        ))}
+
+        <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
+          {formattedList}
+        </Text>
       </CardBody>
     </Card>
   );

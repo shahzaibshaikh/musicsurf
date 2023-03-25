@@ -1,8 +1,7 @@
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
-import randomColor from 'randomcolor';
 import { useSelector } from 'react-redux';
 import useCategories from '../hooks/useCategories';
-import { CategoryState } from '../store/slices/categorySlice';
+import { Categories, CategoryState } from '../store/slices/categorySlice';
 import CategoryCard from './CategoryCard';
 
 function SearchGrid(): JSX.Element {
@@ -15,9 +14,9 @@ function SearchGrid(): JSX.Element {
       </Heading>
 
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
-        <CategoryCard cardColor={randomColor({ luminosity: 'dark' })} />
-        <CategoryCard cardColor={randomColor({ luminosity: 'dark' })} />
-        <CategoryCard cardColor={randomColor({ luminosity: 'dark' })} />
+        {data?.categories?.items.map((item: Categories) => (
+          <CategoryCard data={item} />
+        ))}
       </SimpleGrid>
       <hr className='line' />
     </Box>
