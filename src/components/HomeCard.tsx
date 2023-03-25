@@ -25,7 +25,13 @@ function HomeCard({ data }: HomeCardProps) {
           {data?.name}
         </Heading>
         {data?.artists.map(artist => (
-          <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
+          <Text
+            key={artist.id}
+            fontSize='13px'
+            color='gray.300'
+            fontWeight={500}
+            lineHeight={1.7}
+          >
             {artist.name}
           </Text>
         ))}
