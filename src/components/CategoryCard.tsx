@@ -7,7 +7,13 @@ interface CategoryCardProps {
 
 function CategoryCard({ data }: CategoryCardProps): JSX.Element {
   return (
-    <Box borderRadius={8} height='210px' overflow='hidden' position='relative'>
+    <Box
+      borderRadius={8}
+      height='210px'
+      overflow='hidden'
+      position='relative'
+      boxShadow='0 8px 8px rgba(0, 0, 0, .2)'
+    >
       <Image src={data.icons[0].url} objectFit='cover' width='100%' height='100%' />
       <Box
         position='absolute'
