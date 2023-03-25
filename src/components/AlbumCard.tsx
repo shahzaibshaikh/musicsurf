@@ -3,7 +3,7 @@ import { AlbumItems } from '../store/slices/searchSlice';
 import formatList from '../utilities/textFormatter';
 
 interface AlbumCardProps {
-  data?: AlbumItems;
+  data: AlbumItems;
 }
 
 function AlbumCard({ data }: AlbumCardProps) {

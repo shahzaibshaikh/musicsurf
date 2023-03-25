@@ -1,8 +1,17 @@
-import { Card, CardBody, Heading, HStack, Image, Text } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Card,
+  CardBody,
+  Heading,
+  HStack,
+  Image,
+  Text
+} from '@chakra-ui/react';
 import { ArtistItems } from '../store/slices/searchSlice';
+import capitalizeFirstLetter from '../utilities/textUppercase';
 
 interface ArtistCardProps {
-  data?: ArtistItems;
+  data: ArtistItems;
 }
 
 function ArtistCard({ data }: ArtistCardProps) {
@@ -14,18 +23,20 @@ function ArtistCard({ data }: ArtistCardProps) {
       boxShadow='0 8px 8px rgba(0, 0, 0, .1)'
       borderRadius={5}
     >
-      <Image
-        src={data?.images[0]?.url}
-        borderRadius='50%'
-        boxShadow='0 6px 16px rgba(0, 0, 0, .4)'
-      />
+      <AspectRatio ratio={1}>
+        <Image
+          src={data?.images[0]?.url}
+          borderRadius='50%'
+          boxShadow='0 6px 16px rgba(0, 0, 0, .4)'
+        />
+      </AspectRatio>
       <CardBody padding={0} marginTop={4}>
         <Heading size='1xl' marginBottom={1}>
           {data?.name}
         </Heading>
         <HStack>
           <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
-            {data?.type}
+            {capitalizeFirstLetter(data?.type)}
           </Text>
         </HStack>
       </CardBody>
