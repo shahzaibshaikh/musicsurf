@@ -31,7 +31,7 @@ export interface AlbumData {
   items: Albums[];
 }
 
-interface AlbumState {
+export interface AlbumState {
   loading: boolean;
   error: Error | null;
   data: AlbumData | null;

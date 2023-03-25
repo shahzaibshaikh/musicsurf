@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setData, setError, setLoading } from '../store/slices/albumSlice';
 import apiClient from '../services/api-client';
 
-function useAlbums(token: string) {
+function useAlbums<AlbumState>(token: string) {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.albums);
 
