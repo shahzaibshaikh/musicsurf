@@ -6,7 +6,7 @@ interface HomeCardProps {
   data: Albums;
 }
 
-function HomeCard({ data }: HomeCardProps) {
+function HomeCard() {
   return (
     <Card
       background='#1b1b1b'
