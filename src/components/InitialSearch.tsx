@@ -4,8 +4,14 @@ import { BsSearchHeart } from 'react-icons/bs';
 function InitialSearch() {
   return (
     <Box className='grid-container' placeItems='center' position='relative' height='50vh'>
-      <HStack position='absolute' top='50%' left='50%' transform='translate(-50%, -50%)'>
-        <BsSearchHeart size={60} />
+      <HStack
+        position='absolute'
+        top='50%'
+        left='50%'
+        transform='translate(-50%, -50%)'
+        gap={4}
+      >
+        <BsSearchHeart size='40px' />
         <Text fontSize='2xl' fontWeight={700}>
           Browse for albums, tracks & artists
         </Text>

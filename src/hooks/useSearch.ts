@@ -8,6 +8,7 @@ function useSearch<SearchState>(token: string, limit: number, searchQuery: strin
   const { loading, error, data } = useSelector((state: any) => state.search);
 
   useEffect(() => {
+    console.log('making search');
     const fetchData = async () => {
       try {
         dispatch(setLoading(true));
@@ -31,7 +32,7 @@ function useSearch<SearchState>(token: string, limit: number, searchQuery: strin
       }
     };
     if (token) fetchData();
-  }, [dispatch, token]);
+  }, [dispatch, token, searchQuery]);
 
   return { data, error, loading };
 }

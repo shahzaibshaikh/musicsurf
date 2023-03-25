@@ -65,12 +65,14 @@ export interface SearchState {
   loading: boolean;
   error: Error | null;
   data: SearchData | null;
+  searchQuery: string;
 }
 
 const initialState: SearchState = {
   loading: false,
   error: null,
-  data: null
+  data: null,
+  searchQuery: ''
 };
 
 const searchSlice = createSlice({
@@ -86,10 +88,13 @@ const searchSlice = createSlice({
     setData: (state, action: PayloadAction<SearchData>) => {
       state.data = action.payload;
       state.error = null;
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.searchQuery = action.payload;
     }
   }
 });
 
-export const { setLoading, setError, setData } = searchSlice.actions;
+export const { setLoading, setError, setData, setSearch } = searchSlice.actions;
 
 export default searchSlice.reducer;
