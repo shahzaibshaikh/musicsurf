@@ -15,7 +15,7 @@ function CategoryGrid(): JSX.Element {
 
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
         {data?.categories?.items.map((item: Categories) => (
-          <CategoryCard data={item} />
+          <CategoryCard key={item.id} data={item} />
         ))}
       </SimpleGrid>
       <hr className='line' />

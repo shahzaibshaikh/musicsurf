@@ -3,10 +3,12 @@ import HomeCard from './HomeCard';
 import useAlbums from '../hooks/useAlbums';
 import { useSelector } from 'react-redux';
 import { AlbumData, Albums, AlbumState } from '../store/slices/albumSlice';
+import HomeCardSkeleton from './HomeCardSkeleton';
 
 function HomeGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);
   const { loading, error, data } = useAlbums<AlbumState>(token, 40, 'PK');
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return (
     <Box className='main-grid-container'>
@@ -14,12 +16,20 @@ function HomeGrid(): JSX.Element {
         New Releases
       </Heading>
 
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
-        {data &&
-          data?.albums?.items?.map((item: Albums) => (
-            <HomeCard key={item.id} data={item} />
+      {loading ? (
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
+          {skeletons.map(skeleton => (
+            <HomeCardSkeleton key={skeleton} />
           ))}
-      </SimpleGrid>
+        </SimpleGrid>
+      ) : (
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
+          {data &&
+            data?.albums?.items?.map((item: Albums) => (
+              <HomeCard key={item.id} data={item} />
+            ))}
+        </SimpleGrid>
+      )}
 
       <hr className='line' />
     </Box>
