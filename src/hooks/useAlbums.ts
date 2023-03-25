@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setData, setError, setLoading } from '../store/slices/albumSlice';
 import apiClient from '../services/api-client';
 
-function useAlbums() {
+function useAlbums(token: string) {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.albums);
-  const { token } = useSelector((state: any) => state.spotify);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +25,8 @@ function useAlbums() {
         dispatch(setLoading(false));
       }
     };
-    fetchData();
-  }, [dispatch]);
+    if (token) fetchData();
+  }, [dispatch, token]);
 
   return { data, error, loading };
 }

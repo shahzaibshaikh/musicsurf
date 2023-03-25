@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 function HomeGrid(): JSX.Element {
+  const { token } = useSelector((state: any) => state.spotify);
+  const { loading, error, data } = useAlbums(token);
   return (
     <Box className='main-grid-container'>
       <Heading fontSize='2xl' marginBottom={4}>
