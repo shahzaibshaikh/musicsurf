@@ -1,14 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setData, setError, setLoading } from '../store/slices/searchSlice';
 import apiClient from '../services/api-client';
 
-function useSearch<SearchState>(token: string, limit: number, searchQuery: string) {
+function useSearch<SearchState>(token: string, limit: number) {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.search);
+  const reduxSearchQuery = useSelector((state: any) => state.search.searchQuery);
+  const [searchQuery, setSearchQuery] = useState(reduxSearchQuery);
 
   useEffect(() => {
-    console.log('making search');
+    setSearchQuery(reduxSearchQuery);
+  }, [reduxSearchQuery]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch(setLoading(true));
@@ -31,7 +36,7 @@ function useSearch<SearchState>(token: string, limit: number, searchQuery: strin
         dispatch(setLoading(false));
       }
     };
-    if (token) fetchData();
+    if (token && searchQuery) fetchData();
   }, [dispatch, token, searchQuery]);
 
   return { data, error, loading };
