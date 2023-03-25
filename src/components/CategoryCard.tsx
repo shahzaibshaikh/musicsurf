@@ -23,6 +23,10 @@ function CategoryCard({ data }: CategoryCardProps): JSX.Element {
         height='100%'
         zIndex='1'
         bgGradient='linear(0deg, rgba(0,0,0,0.9990589985994398) 4%, rgba(0,0,0,0) 64%)'
+        _hover={{
+          transition: '500ms',
+          backdropFilter: 'blur(6px)'
+        }}
       />
       <Text
         position='absolute'
