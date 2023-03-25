@@ -8,7 +8,7 @@ function CategoryGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);
   const { loading, error, data } = useCategories<CategoryState>(token);
   return (
-    <Box className='search-grid-container'>
+    <Box className='grid-container'>
       <Heading fontSize='2xl' marginBottom={4}>
         Browse all
       </Heading>

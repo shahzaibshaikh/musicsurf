@@ -37,7 +37,7 @@ const initialState: CategoryState = {
 };
 
 const categorySlice = createSlice({
-  name: 'albums',
+  name: 'categories',
   initialState,
   reducers: {
     setLoading: (state, action: PayloadAction<boolean>) => {

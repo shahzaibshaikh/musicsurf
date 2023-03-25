@@ -44,6 +44,7 @@ function App(): JSX.Element {
         <GridItem area='main'>
           <Routes>
             <Route path='/' element={<HomeGrid />} />
+            <Route path='/search' element={<SearchGrid />} />
             <Route path='/categories' element={<CategoryGrid />} />
             <Route path='/library' element={<>Library</>} />
           </Routes>
