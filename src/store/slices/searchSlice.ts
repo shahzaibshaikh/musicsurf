@@ -23,11 +23,14 @@ export interface AlbumItems {
   total_tracks: number;
   artists: ArtistDetail[];
   images: Images[];
+  type: string;
+  release_date: string;
 }
 
 export interface ArtistItems {
   id: string;
   name: string;
+  type: string;
   popularity: number;
   images: Images[];
 }
@@ -37,6 +40,7 @@ export interface TrackItems {
   name: string;
   popularity: number;
   duration_m: number;
+  type: string;
   artists: ArtistDetail[];
 }
 
