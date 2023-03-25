@@ -7,7 +7,6 @@ function useAlbums() {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.albums);
   const { token } = useSelector((state: any) => state.spotify);
-  console.log(token);
 
   useEffect(() => {
     const fetchData = async () => {

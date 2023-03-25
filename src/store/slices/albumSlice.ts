@@ -11,11 +11,19 @@ interface AlbumImages {
   width: number;
 }
 
-interface Albums {
+export interface Artist {
+  name: string;
+  id: string;
+}
+
+export interface Albums {
   album_type: string;
   total_tracks: number;
   id: string;
   name: string;
+  popularity: number;
+  album_group: string;
+  artists: Artist[];
   images: AlbumImages[];
 }
 export interface AlbumData {

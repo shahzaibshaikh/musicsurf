@@ -1,7 +1,12 @@
 import { Card, CardBody, Heading, Image, Text } from '@chakra-ui/react';
 import placeholderImage from '../assets/255-2554719_a-generic-square-placeholder-image-with-rounded-corners.png';
+import { AlbumData, Albums } from '../store/slices/albumSlice';
 
-function HomeCard() {
+interface HomeCardProps {
+  data: Albums;
+}
+
+function HomeCard({ data }: HomeCardProps) {
   return (
     <Card
       background='#1b1b1b'
@@ -20,7 +25,7 @@ function HomeCard() {
           Title
         </Heading>
         <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Artist
         </Text>
       </CardBody>
     </Card>
