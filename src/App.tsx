@@ -1,6 +1,7 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import CategoryGrid from './components/CategoryGrid';
 import HomeGrid from './components/HomeGrid';
 import LandingScreen from './components/LandingScreen';
 import NavBar from './components/NavBar';
@@ -43,7 +44,7 @@ function App(): JSX.Element {
         <GridItem area='main'>
           <Routes>
             <Route path='/' element={<HomeGrid />} />
-            <Route path='/search' element={<SearchGrid />} />
+            <Route path='/categories' element={<CategoryGrid />} />
             <Route path='/library' element={<>Library</>} />
           </Routes>
         </GridItem>

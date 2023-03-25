@@ -6,7 +6,7 @@ import { AlbumData, Albums, AlbumState } from '../store/slices/albumSlice';
 
 function HomeGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);
-  const { loading, error, data } = useAlbums<AlbumState>(token);
+  const { loading, error, data } = useAlbums<AlbumState>(token, 40, 'PK');
 
   return (
     <Box className='main-grid-container'>
@@ -20,6 +20,7 @@ function HomeGrid(): JSX.Element {
             <HomeCard key={item.id} data={item} />
           ))}
       </SimpleGrid>
+
       <hr className='line' />
     </Box>
   );

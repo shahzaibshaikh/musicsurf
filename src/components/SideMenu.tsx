@@ -3,7 +3,7 @@ import { Link as ReactLink } from 'react-router-dom';
 import { SiGooglehome } from 'react-icons/si';
 import { FaSearch } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5';
-import { BsPersonCircle } from 'react-icons/bs';
+import { TbCategory } from 'react-icons/tb';
 import BrandImage from '../assets/bitmap.svg';
 
 const menuOptions = [
@@ -11,10 +11,10 @@ const menuOptions = [
   { id: 2, name: 'Search', slug: 'search', path: '/search', icon: FaSearch },
   {
     id: 3,
-    name: 'Artists',
-    slug: 'artist',
-    path: '/artist',
-    icon: BsPersonCircle
+    name: 'Categories',
+    slug: 'categories',
+    path: '/categories',
+    icon: TbCategory
   },
   { id: 4, name: 'Your Library', slug: 'library', path: '/library', icon: IoLibrary }
 ];

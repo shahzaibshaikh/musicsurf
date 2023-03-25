@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setData, setError, setLoading } from '../store/slices/albumSlice';
 import apiClient from '../services/api-client';
 
-function useAlbums<AlbumState>(token: string) {
+function useAlbums<AlbumState>(token: string, limit: number, country?: string) {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.albums);
 
@@ -17,7 +17,8 @@ function useAlbums<AlbumState>(token: string) {
             'Content-Type': 'application/json'
           },
           params: {
-            limit: 50
+            limit: limit,
+            country: country
           }
         });
         dispatch(setData(response.data));
