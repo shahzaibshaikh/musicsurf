@@ -11,6 +11,7 @@ import AlbumCard from './AlbumCard';
 import ArtistCard from './ArtistCard';
 import InitialSearch from './InitialSearch';
 import PlaylistCard from './PlaylistCard';
+import SongsSearchDisplay from './SongsSearchDisplay';
 import TrackCard from './TrackCard';
 
 function SearchGrid(): JSX.Element {
@@ -21,19 +22,9 @@ function SearchGrid(): JSX.Element {
 
   return (
     <Box className='grid-container'>
-      {(loading || data === null) && <InitialSearch />}
+      {data === null && <InitialSearch />}
 
-      {data?.tracks && (
-        <>
-          <Heading fontSize='2xl' marginBottom={4}>
-            Songs
-          </Heading>
-
-          {data?.tracks?.items.map((item: TrackItems) => (
-            <TrackCard key={item.id} data={item} />
-          ))}
-        </>
-      )}
+      {data?.tracks && <SongsSearchDisplay data={data.tracks} />}
 
       {data?.albums && (
         <>
