@@ -59,8 +59,13 @@ a {
 }
 
 /* Album Detail Screen */
-/* Main Grid Styling */
 .album-grid-container {
+  padding: 28px;
+  padding-top: 98px;
+}
+
+/* Artist Detail Screen */
+.artist-grid-container {
   padding: 28px;
   padding-top: 98px;
 }

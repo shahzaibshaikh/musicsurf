@@ -3,7 +3,7 @@ import useSpecificAlbum from '../hooks/useSpecificAlbum';
 import { SpecificAlbumState } from '../store/slices/specificAlbumSlice';
 import AlbumDetailHeader from '../components/layout/AlbumDetailHeader';
 import TrackCard from '../components/cards/TrackCard';
-import { Box, Divider } from '@chakra-ui/react';
+import { Box, Divider, Heading } from '@chakra-ui/react';
 import { useState } from 'react';
 import { average } from 'color.js';
 
@@ -16,7 +16,7 @@ function AlbumDetailScreen() {
 
   data?.images &&
     average(data?.images[0]?.url, { amount: 1 }).then(color => {
-      console.log(color);
+      console.log(color); // [241, 221, 63]
       colorGenerator = `rgb(${color[0]},${color[1]},${color[2]})`;
       setColor(colorGenerator);
     });
@@ -28,8 +28,10 @@ function AlbumDetailScreen() {
     >
       {data && <AlbumDetailHeader data={data} />}
 
-      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
-      <Box marginTop={-6}>
+      <Box marginTop={20}>
+        <Heading fontSize='2xl' marginBottom={6} color='white'>
+          Songs
+        </Heading>
         {data?.tracks &&
           data?.tracks?.items.map(item => {
             count++;
