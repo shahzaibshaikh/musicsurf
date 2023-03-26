@@ -9,7 +9,7 @@ interface PlaylistSearchDisplayProps {
 function PlaylistSearchDisplay({ data }: PlaylistSearchDisplayProps) {
   return (
     <Box>
-      <Heading fontSize='2xl' marginBottom={4}>
+      <Heading fontSize='2xl' marginBottom={4} color='white'>
         Playlists
       </Heading>
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>

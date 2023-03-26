@@ -11,8 +11,8 @@ function InitialSearch() {
         transform='translate(-50%, -50%)'
         gap={4}
       >
-        <BsSearchHeart size='40px' />
-        <Text fontSize='2xl' fontWeight={700}>
+        <BsSearchHeart size='40px' color='white' />
+        <Text fontSize='2xl' fontWeight={700} color='white'>
           Browse for albums, tracks, artists & playlists
         </Text>
       </HStack>

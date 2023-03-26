@@ -38,7 +38,13 @@ function AlbumCard({ data }: AlbumCardProps) {
         </AspectRatio>
         <CardBody padding={0} marginTop={4}>
           <LinkOverlay as={ReactLink} to={`/album/${data.id}`}>
-            <Heading size='1xl' marginBottom={1} noOfLines={1} overflowWrap='break-word'>
+            <Heading
+              size='1xl'
+              marginBottom={1}
+              noOfLines={1}
+              overflowWrap='break-word'
+              color='white'
+            >
               {data?.name}
             </Heading>
           </LinkOverlay>

@@ -26,22 +26,26 @@ function AlbumDetailHeader({ data }: AlbumDetailHeaderProps) {
         boxShadow='0 2px 16px rgba(0, 0, 0, .6)'
       />
       <VStack justifyContent='flex-end' alignItems='flex-start'>
-        <Text fontSize='13px' fontWeight={700} marginBottom={-2}>
+        <Text fontSize='13px' fontWeight={700} marginBottom={-2} color='white'>
           {data?.album_type && capitalizeFirstLetter(data?.album_type)}
         </Text>
         {data?.name && (
-          <Text fontSize={data?.name?.length > 8 ? '50px' : '75px'} fontWeight={700}>
+          <Text
+            fontSize={data?.name?.length > 8 ? '50px' : '75px'}
+            fontWeight={700}
+            color='white'
+          >
             {data?.name}
           </Text>
         )}
         <HStack spacing={1}>
-          <Text fontSize='13px' fontWeight={700}>
+          <Text fontSize='13px' fontWeight={700} color='white'>
             {artistList && artistList?.join(' \u2022 ') + ' \u2022 '}
           </Text>
-          <Text fontSize='13px' fontWeight={500}>
+          <Text fontSize='13px' fontWeight={500} color='white'>
             {data?.release_date && data.release_date.split('-')[0] + ' \u2022 '}
           </Text>
-          <Text fontSize='13px' fontWeight={500}>
+          <Text fontSize='13px' fontWeight={500} color='white'>
             {data?.total_tracks && data?.total_tracks + ' songs' + ', '}
           </Text>
           <Text fontSize='13px' fontWeight={500} color='gray.300'>

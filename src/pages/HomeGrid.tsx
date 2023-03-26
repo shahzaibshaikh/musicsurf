@@ -12,7 +12,7 @@ function HomeGrid(): JSX.Element {
 
   return (
     <Box className='main-grid-container'>
-      <Heading fontSize='2xl' marginBottom={4}>
+      <Heading fontSize='2xl' marginBottom={4} color='white'>
         New Releases
       </Heading>
 

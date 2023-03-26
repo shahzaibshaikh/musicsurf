@@ -12,7 +12,7 @@ function CategoryGrid(): JSX.Element {
 
   return (
     <Box className='grid-container'>
-      <Heading fontSize='2xl' marginBottom={4}>
+      <Heading fontSize='2xl' marginBottom={4} color='white'>
         Browse all
       </Heading>
       {loading ? (

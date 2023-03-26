@@ -31,7 +31,13 @@ function ArtistCard({ data }: ArtistCardProps) {
         />
       </AspectRatio>
       <CardBody padding={0} marginTop={4}>
-        <Heading size='1xl' marginBottom={1} noOfLines={1} overflowWrap='break-word'>
+        <Heading
+          size='1xl'
+          marginBottom={1}
+          noOfLines={1}
+          overflowWrap='break-word'
+          color='white'
+        >
           {data?.name}
         </Heading>
         <HStack>

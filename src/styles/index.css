@@ -7,6 +7,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  background: #121212;
+}
+
 a {
   text-decoration: none;
 }

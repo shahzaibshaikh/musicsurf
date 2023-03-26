@@ -29,7 +29,13 @@ function TrackCard({ data, count }: TrackCardProps) {
             </Text>
           )}
           <div>
-            <Heading size='1xl' marginBottom={1} noOfLines={1} overflowWrap='break-word'>
+            <Heading
+              size='1xl'
+              marginBottom={1}
+              noOfLines={1}
+              overflowWrap='break-word'
+              color='white'
+            >
               {data?.name}
             </Heading>
             <Text
