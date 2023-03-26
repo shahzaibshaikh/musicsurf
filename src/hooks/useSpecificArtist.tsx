@@ -12,22 +12,42 @@ import {
 import apiClient from '../services/api-client';
 import { useParams } from 'react-router-dom';
 
-function useSpecificArtist(token: string): SpecificArtistState {
+function useSpecificArtist(token: string, country: string): SpecificArtistState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificArtist);
   const { artistID } = useParams();
+
+  apiClient.defaults.headers.common = {
+    Authorization: 'Bearer ' + token,
+    'Content-Type': 'application/json'
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch(setLoading(true));
-        const response = await apiClient.get(`/artists/${artistID}`, {
-          headers: {
-            Authorization: 'Bearer ' + token,
-            'Content-Type': 'application/json'
+
+        const responseArtistData = await apiClient.get(`/artists/${artistID}`);
+        const responseRelatedArtistData = await apiClient.get(
+          `/artists/${artistID}/related-artists`
+        );
+        const responseArtistAlbumData = await apiClient.get(
+          `/artists/${artistID}/albums`
+        );
+        const responseArtistTrackData = await apiClient.get(
+          `/artists/${artistID}/top-tracks`,
+          {
+            params: {
+              country: country
+            }
           }
-        });
-        dispatch(setArtistData(response.data));
+        );
+
+        dispatch(setArtistData(responseArtistData.data));
+        dispatch(setRelatedArtistData(responseRelatedArtistData.data));
+        dispatch(setArtistAlbumsData(responseArtistAlbumData.data));
+        dispatch(setArtistTrackData(responseArtistTrackData.data));
+
         dispatch(setLoading(false));
       } catch (error: any) {
         dispatch(setError(error));
