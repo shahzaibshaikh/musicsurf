@@ -25,7 +25,7 @@ function useSearch<SearchState>(token: string, limit: number) {
           params: {
             limit: limit,
             q: searchQuery,
-            type: 'album,track,artist'
+            type: 'album,track,artist,playlist'
           }
         });
         dispatch(setData(response.data));

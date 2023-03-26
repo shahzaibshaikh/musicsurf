@@ -4,19 +4,16 @@ import {
   CardBody,
   Heading,
   HStack,
-  Image,
-  Text
+  Text,
+  Image
 } from '@chakra-ui/react';
-import { AlbumItems } from '../store/slices/searchSlice';
-import formatList from '../utilities/textFormatter';
+import { PlaylistItems } from '../store/slices/searchSlice';
 
-interface AlbumCardProps {
-  data: AlbumItems;
+interface PlaylistCardProps {
+  data: PlaylistItems;
 }
 
-function AlbumCard({ data }: AlbumCardProps) {
-  const artistList: string[] | undefined = data?.artists.map(artist => artist.name);
-  const formattedList = artistList ? formatList(artistList) : '';
+function PlaylistCard({ data }: PlaylistCardProps) {
   return (
     <Card
       background='#1b1b1b'
@@ -36,14 +33,12 @@ function AlbumCard({ data }: AlbumCardProps) {
         <Heading size='1xl' marginBottom={1}>
           {data?.name}
         </Heading>
-        <HStack>
-          <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
-            {data?.release_date.split('-')[0]} &#8226; {formattedList}
-          </Text>
-        </HStack>
+        <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
+          By {data?.owner?.display_name}
+        </Text>
       </CardBody>
     </Card>
   );
 }
 
-export default AlbumCard;
+export default PlaylistCard;

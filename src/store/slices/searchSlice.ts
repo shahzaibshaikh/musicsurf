@@ -16,6 +16,17 @@ export interface ArtistDetail {
   id: string;
 }
 
+export interface PlaylistItems {
+  id: string;
+  name: string;
+  type: string;
+  images: Images[];
+  description: string;
+  owner: {
+    display_name: string;
+  };
+}
+
 export interface AlbumItems {
   id: string;
   name: string;
@@ -39,9 +50,15 @@ export interface TrackItems {
   id: string;
   name: string;
   popularity: number;
-  duration_m: number;
+  duration_ms: number;
   type: string;
+  album: AlbumItems;
   artists: ArtistDetail[];
+}
+
+export interface Playlist {
+  total: number;
+  items: PlaylistItems[];
 }
 
 export interface Artist {
@@ -63,6 +80,7 @@ export interface SearchData {
   tracks: Tracks;
   albums: Albums;
   artists: Artist;
+  playlists: Playlist;
 }
 
 export interface SearchState {

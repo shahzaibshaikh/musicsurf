@@ -4,7 +4,7 @@ import { Albums } from '../store/slices/albumSlice';
 import formatList from '../utilities/textFormatter';
 
 interface HomeCardProps {
-  data?: Albums;
+  data: Albums;
 }
 
 function HomeCard({ data }: HomeCardProps) {
