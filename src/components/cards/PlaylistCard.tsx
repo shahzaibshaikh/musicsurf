@@ -30,10 +30,17 @@ function PlaylistCard({ data }: PlaylistCardProps) {
         />
       </AspectRatio>
       <CardBody padding={0} marginTop={4}>
-        <Heading size='1xl' marginBottom={1}>
+        <Heading size='1xl' marginBottom={1} noOfLines={1} overflowWrap='break-word'>
           {data?.name}
         </Heading>
-        <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
+        <Text
+          fontSize='13px'
+          color='gray.300'
+          fontWeight={500}
+          lineHeight={1.7}
+          noOfLines={1}
+          overflowWrap='break-word'
+        >
           By {data?.owner?.display_name}
         </Text>
       </CardBody>

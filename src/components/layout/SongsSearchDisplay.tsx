@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import { TrackItems, Tracks } from '../../store/slices/searchSlice';
 import TrackCard from '../cards/TrackCard';
 
@@ -8,7 +8,7 @@ interface SongSearchDisplayProps {
 
 function SongsSearchDisplay({ data }: SongSearchDisplayProps) {
   return (
-    <>
+    <Box marginBottom={6}>
       <Heading fontSize='2xl' marginBottom={4}>
         Songs
       </Heading>
@@ -17,7 +17,7 @@ function SongsSearchDisplay({ data }: SongSearchDisplayProps) {
           <TrackCard key={item.id} data={item} />
         ))}
       </SimpleGrid>
-    </>
+    </Box>
   );
 }
 

@@ -1,18 +1,11 @@
-import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import useSearch from '../hooks/useSearch';
-import {
-  AlbumItems,
-  ArtistItems,
-  PlaylistItems,
-  TrackItems
-} from '../store/slices/searchSlice';
-import AlbumCard from '../components/cards/AlbumCard';
-import ArtistCard from '../components/cards/ArtistCard';
 import InitialSearch from './InitialSearch';
-import PlaylistCard from '../components/cards/PlaylistCard';
 import SongsSearchDisplay from '../components/layout/SongsSearchDisplay';
-import TrackCard from '../components/cards/TrackCard';
+import AlbumSearchDisplay from '../components/layout/AlbumSearchDisplay';
+import ArtistSearchDisplay from '../components/layout/ArtistSearchDisplay';
+import PlaylistSearchDisplay from '../components/layout/PlaylistSearchDisplay';
 
 function SearchGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);
@@ -22,48 +15,11 @@ function SearchGrid(): JSX.Element {
 
   return (
     <Box className='grid-container'>
-      {data === null && <InitialSearch />}
-
-      {data?.tracks && <SongsSearchDisplay data={data.tracks} />}
-
-      {data?.albums && (
-        <>
-          <Heading fontSize='2xl' marginBottom={4}>
-            Albums
-          </Heading>
-          <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
-            {data?.albums?.items.map((item: AlbumItems) => (
-              <AlbumCard key={item.id} data={item} />
-            ))}
-          </SimpleGrid>
-        </>
-      )}
-
-      {data?.artists && (
-        <>
-          <Heading fontSize='2xl' marginBottom={4}>
-            Artists
-          </Heading>
-          <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
-            {data?.artists?.items.map((item: ArtistItems) => (
-              <ArtistCard key={item.id} data={item} />
-            ))}
-          </SimpleGrid>
-        </>
-      )}
-
-      {data?.playlists && (
-        <>
-          <Heading fontSize='2xl' marginBottom={4}>
-            Playlists
-          </Heading>
-          <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
-            {data?.playlists?.items.map((item: PlaylistItems) => (
-              <PlaylistCard key={item.id} data={item} />
-            ))}
-          </SimpleGrid>
-        </>
-      )}
+      {!data && <InitialSearch />}
+      {data?.tracks && <SongsSearchDisplay data={data?.tracks} />}
+      {data?.albums && <AlbumSearchDisplay data={data?.albums} />}
+      {data?.artists && <ArtistSearchDisplay data={data?.artists} />}
+      {data?.playlists && <PlaylistSearchDisplay data={data?.playlists} />}
     </Box>
   );
 }

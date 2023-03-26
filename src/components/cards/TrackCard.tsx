@@ -21,10 +21,17 @@ function TrackCard({ data }: TrackCardProps) {
         <HStack gap={2}>
           <Image src={data?.album?.images[0]?.url} boxSize={41} />
           <div>
-            <Heading size='1xl' marginBottom={1}>
+            <Heading size='1xl' marginBottom={1} noOfLines={1} overflowWrap='break-word'>
               {data?.name}
             </Heading>
-            <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
+            <Text
+              fontSize='13px'
+              color='gray.300'
+              fontWeight={500}
+              lineHeight={1.7}
+              noOfLines={1}
+              overflowWrap='break-word'
+            >
               {formattedList}
             </Text>
           </div>
