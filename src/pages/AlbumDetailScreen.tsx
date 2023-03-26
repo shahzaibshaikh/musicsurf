@@ -3,7 +3,7 @@ import useSpecificAlbum from '../hooks/useSpecificAlbum';
 import { SpecificAlbumState } from '../store/slices/specificAlbumSlice';
 import AlbumDetailHeader from '../components/layout/AlbumDetailHeader';
 import TrackCard from '../components/cards/TrackCard';
-import { Box } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import { useState } from 'react';
 import { average } from 'color.js';
 
@@ -28,7 +28,7 @@ function AlbumDetailScreen() {
     >
       {data && <AlbumDetailHeader data={data} />}
 
-      <hr className='line' />
+      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
       <Box marginTop={-6}>
         {data?.tracks &&
           data?.tracks?.items.map(item => {
@@ -36,7 +36,7 @@ function AlbumDetailScreen() {
             return <TrackCard key={item.id} data={item} count={count} />;
           })}
       </Box>
-      <hr className='line' />
+      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
     </Box>
   );
 }

@@ -1,8 +1,8 @@
-import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box, Divider, Heading, SimpleGrid } from '@chakra-ui/react';
 import HomeCard from '../components/cards/HomeCard';
 import useAlbums from '../hooks/useAlbums';
 import { useSelector } from 'react-redux';
-import { AlbumData, Albums, AlbumState } from '../store/slices/albumSlice';
+import { Albums, AlbumState } from '../store/slices/albumSlice';
 import HomeCardSkeleton from '../components/skeletons/HomeCardSkeleton';
 
 function HomeGrid(): JSX.Element {
@@ -31,7 +31,7 @@ function HomeGrid(): JSX.Element {
         </SimpleGrid>
       )}
 
-      <hr className='line' />
+      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
     </Box>
   );
 }

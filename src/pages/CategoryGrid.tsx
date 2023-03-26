@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid, Divider } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import useCategories from '../hooks/useCategories';
 import { Categories, CategoryState } from '../store/slices/categorySlice';
@@ -28,7 +28,7 @@ function CategoryGrid(): JSX.Element {
           ))}
         </SimpleGrid>
       )}
-      <hr className='line' />
+      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
     </Box>
   );
 }
