@@ -4,20 +4,22 @@ import { SpecificAlbumState } from '../store/slices/specificAlbumSlice';
 import AlbumDetailHeader from '../components/layout/AlbumDetailHeader';
 import TrackCard from '../components/cards/TrackCard';
 import { Box } from '@chakra-ui/react';
-import getMainColor from '../utilities/getMainColor';
 import { useState } from 'react';
+import { average } from 'color.js';
 
 function AlbumDetailScreen() {
   const { token } = useSelector((state: any) => state.spotify);
   const { loading, data }: SpecificAlbumState = useSpecificAlbum(token);
+  let colorGenerator: string;
   const [color, setColor] = useState('');
   let count: number = 0;
+
   data?.images &&
-    getMainColor(data?.images[0]?.url)
-      .then((mainColor: string) => setColor(mainColor))
-      .catch(error => {
-        return error;
-      });
+    average(data?.images[0]?.url, { amount: 1 }).then(color => {
+      console.log(color);
+      colorGenerator = `rgb(${color[0]},${color[1]},${color[2]})`;
+      setColor(colorGenerator);
+    });
 
   return (
     <Box
