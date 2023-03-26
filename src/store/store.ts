@@ -3,6 +3,7 @@ import albumReducer from './slices/albumSlice';
 import categoryReducer from './slices/categorySlice';
 import searchReducer from './slices/searchSlice';
 import specificAlbumReducer from './slices/specificAlbumSlice';
+import specificArtistReducer from './slices/specificArtistSlice';
 import spotifyReducer from './slices/spotifySlice';
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     albums: albumReducer,
     categories: categoryReducer,
     search: searchReducer,
-    specificAlbum: specificAlbumReducer
+    specificAlbum: specificAlbumReducer,
+    specificArtist: specificArtistReducer
   }
 });
