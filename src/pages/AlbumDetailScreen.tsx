@@ -6,6 +6,7 @@ import TrackCard from '../components/cards/TrackCard';
 import { Box, Divider, Heading } from '@chakra-ui/react';
 import { useState } from 'react';
 import { average } from 'color.js';
+import TrackListing from '../components/layout/TrackListing';
 
 function AlbumDetailScreen() {
   const { token } = useSelector((state: any) => state.spotify);
@@ -16,7 +17,6 @@ function AlbumDetailScreen() {
 
   data?.images &&
     average(data?.images[0]?.url, { amount: 1 }).then(color => {
-      console.log(color); // [241, 221, 63]
       colorGenerator = `rgb(${color[0]},${color[1]},${color[2]})`;
       setColor(colorGenerator);
     });
@@ -27,17 +27,8 @@ function AlbumDetailScreen() {
       background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
     >
       {data && <AlbumDetailHeader data={data} />}
+      {data?.tracks && <TrackListing data={data.tracks} count={count} />}
 
-      <Box marginTop={20}>
-        <Heading fontSize='2xl' marginBottom={6} color='white'>
-          Songs
-        </Heading>
-        {data?.tracks &&
-          data?.tracks?.items.map(item => {
-            count++;
-            return <TrackCard key={item.id} data={item} count={count} />;
-          })}
-      </Box>
       <Divider color='#121212' marginTop='80px' marginBottom='40px' />
     </Box>
   );
