@@ -42,7 +42,7 @@ function App(): JSX.Element {
         </Show>
 
         {/* Main Page */}
-        <GridItem area='main'>
+        <GridItem area='main' background='gray.800'>
           <Routes>
             <Route path='/' element={<HomeGrid />} />
             <Route path='/search' element={<SearchGrid />} />

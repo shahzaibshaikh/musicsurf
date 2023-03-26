@@ -1,12 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setData, setError, setLoading } from '../store/slices/specificAlbumSlice';
+import {
+  setData,
+  setError,
+  setLoading,
+  SpecificAlbumState
+} from '../store/slices/specificAlbumSlice';
 import apiClient from '../services/api-client';
 import { useParams } from 'react-router-dom';
 
-function useAlbums(token: string) {
+function useSpecificAlbums(token: string): SpecificAlbumState {
   const dispatch = useDispatch();
-  const { loading, error, data } = useSelector((state: any) => state.albums);
+  const { loading, error, data } = useSelector((state: any) => state.specificAlbum);
   const { albumID } = useParams();
 
   useEffect(() => {
@@ -33,4 +38,4 @@ function useAlbums(token: string) {
   return { data, error, loading };
 }
 
-export default useAlbums;
+export default useSpecificAlbums;

@@ -50,6 +50,7 @@ export interface TrackItems {
   id: string;
   name: string;
   popularity: number;
+  images: Images[];
   duration_ms: number;
   type: string;
   album: AlbumItems;

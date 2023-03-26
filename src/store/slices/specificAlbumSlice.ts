@@ -12,15 +12,11 @@ export interface Albums {
   images: Images[];
   tracks: Tracks;
 }
-export interface AlbumData {
-  total: number;
-  items: Albums[];
-}
 
 export interface SpecificAlbumState {
   loading: boolean;
   error: Error | null;
-  data: AlbumData | null;
+  data: Albums | null;
 }
 
 const initialState: SpecificAlbumState = {
@@ -39,7 +35,7 @@ const specificAlbumSlice = createSlice({
     setError: (state, action: PayloadAction<Error>) => {
       state.error = action.payload;
     },
-    setData: (state, action: PayloadAction<AlbumData>) => {
+    setData: (state, action: PayloadAction<Albums>) => {
       state.data = action.payload;
       state.error = null;
     }
