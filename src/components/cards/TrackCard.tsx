@@ -14,7 +14,7 @@ function TrackCard({ data }: TrackCardProps) {
     <Card
       padding='4px 8px'
       background='transparent'
-      _hover={{ background: '#262626', transition: '300ms' }}
+      _hover={{ background: 'rgb(38,38,38,0.6)', transition: '300ms' }}
       borderRadius={6}
     >
       <HStack justifyContent='space-between' alignItems='center'>

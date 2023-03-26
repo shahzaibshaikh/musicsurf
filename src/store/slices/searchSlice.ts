@@ -5,7 +5,7 @@ export interface Error {
   message: string;
 }
 
-interface Images {
+export interface Images {
   url: string;
   height: number;
   width: number;

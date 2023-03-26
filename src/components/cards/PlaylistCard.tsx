@@ -24,7 +24,7 @@ function PlaylistCard({ data }: PlaylistCardProps) {
     >
       <AspectRatio ratio={1}>
         <Image
-          src={data?.images[0].url}
+          src={data?.images[0]?.url}
           borderRadius={5}
           boxShadow='0 8px 8px rgba(0, 0, 0, .4)'
         />

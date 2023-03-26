@@ -37,8 +37,8 @@ a {
 /* Main Grid Styling */
 .main-grid-container {
   background: linear-gradient(180deg, rgba(25, 25, 25, 1) 0%, rgba(18, 18, 18, 1) 100%);
-  margin-top: 70px;
   padding: 28px;
+  padding-top: 98px;
 }
 
 /* Search Grid Styles */
@@ -52,4 +52,12 @@ a {
   margin-top: 80px;
   margin-bottom: 40px;
   background: #121212;
+}
+
+/* Album Detail Screen */
+/* Main Grid Styling */
+.album-grid-container {
+  background: linear-gradient(180deg, rgba(25, 25, 25, 1) 0%, rgba(18, 18, 18, 1) 100%);
+  padding: 28px;
+  padding-top: 98px;
 }
