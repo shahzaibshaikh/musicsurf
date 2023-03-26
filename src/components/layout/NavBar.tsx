@@ -11,7 +11,7 @@ function NavBar(): JSX.Element {
 
       {window.location.pathname === '/search' && <SearchInput />}
 
-      <Button
+      {/* <Button
         borderRadius={20}
         padding={5}
         variant='solid'
@@ -20,7 +20,7 @@ function NavBar(): JSX.Element {
         fontSize={13}
       >
         Login
-      </Button>
+      </Button> */}
     </HStack>
   );
 }
