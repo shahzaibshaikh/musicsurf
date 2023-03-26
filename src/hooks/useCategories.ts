@@ -17,7 +17,7 @@ function useCategories<CategoryState>(token: string) {
             'Content-Type': 'application/json'
           },
           params: {
-            limit: 50
+            limit: 44
           }
         });
         dispatch(setData(response.data));
