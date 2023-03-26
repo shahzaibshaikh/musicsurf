@@ -2,7 +2,7 @@ import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
-import { setSearch } from '../store/slices/searchSlice';
+import { setSearch } from '../../store/slices/searchSlice';
 
 function SearchInput(): JSX.Element {
   const [searchQuery, setSearchQuery] = useState('');

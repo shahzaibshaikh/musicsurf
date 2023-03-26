@@ -1,9 +1,9 @@
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
-import HomeCard from './HomeCard';
+import HomeCard from '../components/cards/HomeCard';
 import useAlbums from '../hooks/useAlbums';
 import { useSelector } from 'react-redux';
 import { AlbumData, Albums, AlbumState } from '../store/slices/albumSlice';
-import HomeCardSkeleton from './HomeCardSkeleton';
+import HomeCardSkeleton from '../components/skeletons/HomeCardSkeleton';
 
 function HomeGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);

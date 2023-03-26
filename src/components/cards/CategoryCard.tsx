@@ -1,5 +1,5 @@
 import { Box, Text, Image } from '@chakra-ui/react';
-import { Categories } from '../store/slices/categorySlice';
+import { Categories } from '../../store/slices/categorySlice';
 
 interface CategoryCardProps {
   data: Categories;

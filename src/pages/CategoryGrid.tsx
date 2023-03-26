@@ -2,8 +2,8 @@ import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import useCategories from '../hooks/useCategories';
 import { Categories, CategoryState } from '../store/slices/categorySlice';
-import CategoryCard from './CategoryCard';
-import CategoryCardSkeleton from './CategoryCardSkeleton';
+import CategoryCard from '../components/cards/CategoryCard';
+import CategoryCardSkeleton from '../components/skeletons/CategoryCardSkeleton';
 
 function CategoryGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);

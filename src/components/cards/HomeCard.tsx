@@ -1,7 +1,7 @@
 import { Card, CardBody, Heading, Image, Text } from '@chakra-ui/react';
-import placeholderImage from '../assets/255-2554719_a-generic-square-placeholder-image-with-rounded-corners.png';
-import { Albums } from '../store/slices/albumSlice';
-import formatList from '../utilities/textFormatter';
+import placeholderImage from '../../assets/255-2554719_a-generic-square-placeholder-image-with-rounded-corners.png';
+import { Albums } from '../../store/slices/albumSlice';
+import formatList from '../../utilities/textFormatter';
 
 interface HomeCardProps {
   data: Albums;

@@ -1,12 +1,11 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import CategoryGrid from './components/CategoryGrid';
-import HomeGrid from './components/HomeGrid';
-import LandingScreen from './components/LandingScreen';
-import NavBar from './components/NavBar';
-import SearchGrid from './components/SearchGrid';
-import SideMenu from './components/SideMenu';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CategoryGrid from './pages/CategoryGrid';
+import HomeGrid from './pages/HomeGrid';
+import NavBar from './components/layout/NavBar';
+import SearchGrid from './pages/SearchGrid';
+import SideMenu from './components/layout/SideMenu';
 import useSpotify from './hooks/useSpotify';
 
 function App(): JSX.Element {

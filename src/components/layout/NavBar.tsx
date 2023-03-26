@@ -1,6 +1,6 @@
 import { Button, HStack, Image, Show } from '@chakra-ui/react';
-import LogoIcon from '../assets/favicon.svg';
-import SearchInput from './SearchInput';
+import LogoIcon from '../../assets/favicon.svg';
+import SearchInput from '../common/SearchInput';
 
 function NavBar(): JSX.Element {
   return (

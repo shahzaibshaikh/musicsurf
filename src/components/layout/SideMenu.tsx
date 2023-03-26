@@ -4,7 +4,7 @@ import { SiGooglehome } from 'react-icons/si';
 import { FaSearch } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5';
 import { TbCategory } from 'react-icons/tb';
-import BrandImage from '../assets/bitmap.svg';
+import BrandImage from '../../assets/bitmap.svg';
 
 const menuOptions = [
   { id: 1, name: 'Home', slug: 'home', path: '/', icon: SiGooglehome },

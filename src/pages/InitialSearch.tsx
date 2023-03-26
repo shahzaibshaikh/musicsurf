@@ -13,7 +13,7 @@ function InitialSearch() {
       >
         <BsSearchHeart size='40px' />
         <Text fontSize='2xl' fontWeight={700}>
-          Browse for albums, tracks & artists
+          Browse for albums, tracks, artists & playlists
         </Text>
       </HStack>
     </Box>

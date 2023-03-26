@@ -7,12 +7,12 @@ import {
   PlaylistItems,
   TrackItems
 } from '../store/slices/searchSlice';
-import AlbumCard from './AlbumCard';
-import ArtistCard from './ArtistCard';
+import AlbumCard from '../components/cards/AlbumCard';
+import ArtistCard from '../components/cards/ArtistCard';
 import InitialSearch from './InitialSearch';
-import PlaylistCard from './PlaylistCard';
-import SongsSearchDisplay from './SongsSearchDisplay';
-import TrackCard from './TrackCard';
+import PlaylistCard from '../components/cards/PlaylistCard';
+import SongsSearchDisplay from '../components/layout/SongsSearchDisplay';
+import TrackCard from '../components/cards/TrackCard';
 
 function SearchGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);

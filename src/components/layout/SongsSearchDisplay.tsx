@@ -1,6 +1,6 @@
 import { Heading, SimpleGrid } from '@chakra-ui/react';
-import { TrackItems, Tracks } from '../store/slices/searchSlice';
-import TrackCard from './TrackCard';
+import { TrackItems, Tracks } from '../../store/slices/searchSlice';
+import TrackCard from '../cards/TrackCard';
 
 interface SongSearchDisplayProps {
   data: Tracks;

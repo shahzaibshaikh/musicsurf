@@ -7,14 +7,16 @@ import {
   Image,
   Text
 } from '@chakra-ui/react';
-import { ArtistItems } from '../store/slices/searchSlice';
-import capitalizeFirstLetter from '../utilities/textUppercase';
+import { AlbumItems } from '../../store/slices/searchSlice';
+import formatList from '../../utilities/textFormatter';
 
-interface ArtistCardProps {
-  data: ArtistItems;
+interface AlbumCardProps {
+  data: AlbumItems;
 }
 
-function ArtistCard({ data }: ArtistCardProps) {
+function AlbumCard({ data }: AlbumCardProps) {
+  const artistList: string[] | undefined = data?.artists.map(artist => artist.name);
+  const formattedList = artistList ? formatList(artistList) : '';
   return (
     <Card
       background='#1b1b1b'
@@ -25,9 +27,9 @@ function ArtistCard({ data }: ArtistCardProps) {
     >
       <AspectRatio ratio={1}>
         <Image
-          src={data?.images[0]?.url}
-          borderRadius='50%'
-          boxShadow='0 6px 16px rgba(0, 0, 0, .4)'
+          src={data?.images[0].url}
+          borderRadius={5}
+          boxShadow='0 8px 8px rgba(0, 0, 0, .4)'
         />
       </AspectRatio>
       <CardBody padding={0} marginTop={4}>
@@ -36,7 +38,7 @@ function ArtistCard({ data }: ArtistCardProps) {
         </Heading>
         <HStack>
           <Text fontSize='13px' color='gray.300' fontWeight={500} lineHeight={1.7}>
-            {capitalizeFirstLetter(data?.type)}
+            {data?.release_date.split('-')[0]} &#8226; {formattedList}
           </Text>
         </HStack>
       </CardBody>
@@ -44,4 +46,4 @@ function ArtistCard({ data }: ArtistCardProps) {
   );
 }
 
-export default ArtistCard;
+export default AlbumCard;

@@ -1,7 +1,7 @@
 import { Card, Heading, HStack, Image, Text } from '@chakra-ui/react';
-import { TrackItems } from '../store/slices/searchSlice';
-import formatTime from '../utilities/msToMinutes';
-import formatList from '../utilities/textFormatter';
+import { TrackItems } from '../../store/slices/searchSlice';
+import formatTime from '../../utilities/msToMinutes';
+import formatList from '../../utilities/textFormatter';
 
 interface TrackCardProps {
   data: TrackItems;
