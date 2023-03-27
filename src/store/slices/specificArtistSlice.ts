@@ -51,7 +51,7 @@ const specificArtistSlice = createSlice({
       };
       state.error = null;
     },
-    setArtistTrackData: (state: any, action: PayloadAction<TrackItems[]>) => {
+    setArtistTrackData: (state: any, action: PayloadAction<Tracks>) => {
       state.data = {
         ...state.data,
         artist_toptracks: action.payload

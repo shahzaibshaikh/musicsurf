@@ -27,7 +27,7 @@ function AlbumDetailScreen() {
       background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
     >
       {data && <AlbumDetailHeader data={data} />}
-      {data?.tracks && <TrackListing data={data.tracks} count={count} />}
+      {data?.tracks && <TrackListing data={data.tracks.items} count={count} />}
 
       <Divider color='#121212' marginTop='80px' marginBottom='40px' />
     </Box>

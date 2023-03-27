@@ -46,7 +46,7 @@ function useSpecificArtist(token: string, country: string): SpecificArtistState 
         dispatch(setArtistData(responseArtistData.data));
         dispatch(setRelatedArtistData(responseRelatedArtistData.data));
         dispatch(setArtistAlbumsData(responseArtistAlbumData.data));
-        dispatch(setArtistTrackData(responseArtistTrackData.data));
+        dispatch(setArtistTrackData(responseArtistTrackData.data.tracks));
 
         dispatch(setLoading(false));
       } catch (error: any) {
