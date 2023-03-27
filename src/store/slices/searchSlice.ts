@@ -25,6 +25,7 @@ export interface PlaylistItems {
   owner: {
     display_name: string;
   };
+  tracks: Tracks;
 }
 
 export interface AlbumItems {

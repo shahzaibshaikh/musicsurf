@@ -5,6 +5,7 @@ import featuredPlaylistReducer from './slices/featuredPlaylistSlice';
 import searchReducer from './slices/searchSlice';
 import specificAlbumReducer from './slices/specificAlbumSlice';
 import specificArtistReducer from './slices/specificArtistSlice';
+import specificPlaylistReducer from './slices/specificPlaylistSlice';
 import spotifyReducer from './slices/spotifySlice';
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
     search: searchReducer,
     specificAlbum: specificAlbumReducer,
     specificArtist: specificArtistReducer,
-    featuredPlaylist: featuredPlaylistReducer
+    featuredPlaylists: featuredPlaylistReducer,
+    specificPlaylist: specificPlaylistReducer
   }
 });

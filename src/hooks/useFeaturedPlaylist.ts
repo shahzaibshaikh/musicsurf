@@ -14,7 +14,7 @@ function useFeaturedPlaylist(
   limit?: number
 ): FeaturedPlaylistState {
   const dispatch = useDispatch();
-  const { loading, error, data } = useSelector((state: any) => state.featuredPlaylist);
+  const { loading, error, data } = useSelector((state: any) => state.featuredPlaylists);
 
   apiClient.defaults.headers.common = {
     Authorization: 'Bearer ' + token,
