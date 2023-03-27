@@ -8,7 +8,10 @@ import {
 } from '../store/slices/specificPlaylistSlice';
 import apiClient from '../services/api-client';
 
-function useFeaturedPlaylist(token: string, playlistID: string): SpecificPlaylistState {
+function useSpecificPlaylist(
+  token: string,
+  playlistID: string | undefined
+): SpecificPlaylistState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificPlaylist);
 
@@ -39,4 +42,4 @@ function useFeaturedPlaylist(token: string, playlistID: string): SpecificPlaylis
   return { data, error, loading };
 }
 
-export default useFeaturedPlaylist;
+export default useSpecificPlaylist;

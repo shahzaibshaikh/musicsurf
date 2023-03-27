@@ -9,6 +9,8 @@ interface TrackCardProps {
 }
 
 function TrackCard({ data, count }: TrackCardProps) {
+  // console.log(data);
+
   const artistList: string[] | undefined = data?.artists.map(artist => artist.name);
   const formattedList = artistList ? formatList(artistList) : '';
   return (

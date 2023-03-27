@@ -24,10 +24,7 @@ const specificPlaylistSlice = createSlice({
       state.error = action.payload;
     },
     setData: (state: any, action: PayloadAction<PlaylistItems>) => {
-      state.data = {
-        ...state.data,
-        featured_playlist: action.payload
-      };
+      state.data = action.payload;
       state.error = null;
     }
   }

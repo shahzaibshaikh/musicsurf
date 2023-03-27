@@ -25,7 +25,21 @@ export interface PlaylistItems {
   owner: {
     display_name: string;
   };
-  tracks: Tracks;
+  tracks: {
+    total: number;
+    items: {
+      track: {
+        id: string;
+        name: string;
+        popularity: number;
+        images: Images[];
+        duration_ms: number;
+        type: string;
+        album: AlbumItems;
+        artists: ArtistDetail[];
+      };
+    }[];
+  };
 }
 
 export interface AlbumItems {
@@ -45,6 +59,19 @@ export interface ArtistItems {
   type: string;
   popularity: number;
   images: Images[];
+}
+
+export interface PlaylistTrack {
+  track: {
+    id: string;
+    name: string;
+    popularity: number;
+    images: Images[];
+    duration_ms: number;
+    type: string;
+    album: AlbumItems;
+    artists: ArtistDetail[];
+  };
 }
 
 export interface TrackItems {

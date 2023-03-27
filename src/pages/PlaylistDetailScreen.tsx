@@ -4,20 +4,38 @@ import { useState } from 'react';
 import { average } from 'color.js';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import useSpecificPlaylist from '../hooks/useSpecificPlaylist';
+import ArtistDetailHeader from '../components/layout/ArtistDetailHeader';
+import PlaylistDetailHeader from '../components/layout/PlaylistDetailHeader';
 
 function PlaylistDetailScreen() {
   const { playlistID } = useParams();
   const { token } = useSelector((state: any) => state.spotify);
+  const { loading, data } = useSpecificPlaylist(token, playlistID);
   let colorGenerator: string;
   const [color, setColor] = useState('');
   let count: number = 0;
+
+  data?.images &&
+    average(data?.images[0]?.url, { amount: 1 }).then(color => {
+      colorGenerator = `rgb(${color[0]},${color[1]},${color[2]})`;
+      setColor(colorGenerator);
+    });
 
   return (
     <Box
       className='playlist-grid-container'
       background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
     >
-      PlayList Detail Screen
+      {data && <PlaylistDetailHeader data={data} />}
+      {data?.tracks && (
+        <TrackListing
+          data={data?.tracks?.items}
+          count={count}
+          variant='playlist-listing'
+        />
+      )}
+
       <Divider color='#121212' marginTop='80px' marginBottom='40px' />
     </Box>
   );
