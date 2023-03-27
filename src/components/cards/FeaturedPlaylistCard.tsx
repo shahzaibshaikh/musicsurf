@@ -14,17 +14,21 @@ function FeaturedPlaylistCard({ data }: FeaturedPlaylistCardProps) {
       _hover={{ background: 'rgb(90,90,90, 0.4)', transition: '300ms' }}
       boxShadow='0 8px 8px rgba(0, 0, 0, .1)'
     >
-      <HStack>
+      <HStack alignItems='center'>
         <Image
           boxShadow='0 8px 14px rgba(0, 0, 0, .6)'
           boxSize='80px'
           src={data?.images[0]?.url}
         />
-        <CardBody height='80px' alignItems='flex-start'>
-          <Heading size='1xl' noOfLines={1} overflowWrap='break-word' color='white'>
-            {data?.name}
-          </Heading>
-        </CardBody>
+        <Heading
+          size='1xl'
+          padding={3}
+          noOfLines={1}
+          overflowWrap='break-word'
+          color='white'
+        >
+          {data?.name}
+        </Heading>
       </HStack>
     </Card>
   );
