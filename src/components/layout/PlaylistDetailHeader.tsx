@@ -9,7 +9,7 @@ interface PlaylistDetailHeaderProps {
 
 function PlaylistDetailHeader({ data }: PlaylistDetailHeaderProps) {
   const totalDuration: number | undefined = data?.tracks?.items.reduce(
-    (total, current) => total + current.track.duration_ms,
+    (total, current) => total + current?.track?.duration_ms,
     0
   );
 
