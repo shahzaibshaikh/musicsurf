@@ -6,7 +6,6 @@ import HomeGrid from './pages/HomeGrid';
 import NavBar from './components/layout/NavBar';
 import SearchGrid from './pages/SearchGrid';
 import SideMenu from './components/layout/SideMenu';
-import useSpotify from './hooks/useSpotify';
 import AlbumDetailScreen from './pages/AlbumDetailScreen';
 import ArtistDetailScreen from './pages/ArtistDetailScreen';
 import PlaylistDetailScreen from './pages/PlaylistDetailScreen';

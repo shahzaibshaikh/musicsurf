@@ -6,11 +6,9 @@ import searchReducer from './slices/searchSlice';
 import specificAlbumReducer from './slices/specificAlbumSlice';
 import specificArtistReducer from './slices/specificArtistSlice';
 import specificPlaylistReducer from './slices/specificPlaylistSlice';
-import spotifyReducer from './slices/spotifySlice';
 
 export const store = configureStore({
   reducer: {
-    spotify: spotifyReducer,
     albums: albumReducer,
     categories: categoryReducer,
     search: searchReducer,
