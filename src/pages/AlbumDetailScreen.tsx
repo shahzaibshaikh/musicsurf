@@ -2,14 +2,16 @@ import { useSelector } from 'react-redux';
 import useSpecificAlbum from '../hooks/useSpecificAlbum';
 import { SpecificAlbumState } from '../store/slices/specificAlbumSlice';
 import AlbumDetailHeader from '../components/layout/AlbumDetailHeader';
-import { Box, Divider, Heading } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import { useState } from 'react';
 import { average } from 'color.js';
 import TrackListing from '../components/layout/TrackListing';
+import { useParams } from 'react-router-dom';
 
 function AlbumDetailScreen() {
+  const { albumID } = useParams();
   const { token } = useSelector((state: any) => state.spotify);
-  const { loading, data }: SpecificAlbumState = useSpecificAlbum(token);
+  const { loading, data }: SpecificAlbumState = useSpecificAlbum(token, albumID);
   let colorGenerator: string;
   const [color, setColor] = useState('');
   let count: number = 0;

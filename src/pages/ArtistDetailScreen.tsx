@@ -2,6 +2,7 @@ import { Box } from '@chakra-ui/react';
 import { average } from 'color.js';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import AlbumSearchDisplay from '../components/layout/AlbumSearchDisplay';
 import ArtistDetailHeader from '../components/layout/ArtistDetailHeader';
 import ArtistSearchDisplay from '../components/layout/ArtistSearchDisplay';
@@ -10,8 +11,14 @@ import useSpecificArtist from '../hooks/useSpecificArtist';
 import { SpecificArtistState } from '../store/slices/specificArtistSlice';
 
 function ArtistDetailScreen() {
+  const { artistID } = useParams();
   const { token } = useSelector((state: any) => state.spotify);
-  const { loading, data }: SpecificArtistState = useSpecificArtist(token, 'PK', 5);
+  const { loading, data }: SpecificArtistState = useSpecificArtist(
+    token,
+    artistID,
+    'PK',
+    5
+  );
   let colorGenerator: string;
   const [color, setColor] = useState('');
   let count: number = 0;

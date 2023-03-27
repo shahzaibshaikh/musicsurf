@@ -10,16 +10,15 @@ import {
   SpecificArtistState
 } from '../store/slices/specificArtistSlice';
 import apiClient from '../services/api-client';
-import { useParams } from 'react-router-dom';
 
 function useSpecificArtist(
   token: string,
+  artistID: string | undefined,
   country?: string,
   limit?: number
 ): SpecificArtistState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificArtist);
-  const { artistID } = useParams();
 
   apiClient.defaults.headers.common = {
     Authorization: 'Bearer ' + token,
@@ -65,7 +64,7 @@ function useSpecificArtist(
       }
     };
     if (token) fetchData();
-  }, [dispatch, token]);
+  }, [dispatch, token, artistID]);
 
   return { data, error, loading };
 }

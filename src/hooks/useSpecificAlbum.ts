@@ -7,12 +7,10 @@ import {
   SpecificAlbumState
 } from '../store/slices/specificAlbumSlice';
 import apiClient from '../services/api-client';
-import { useParams } from 'react-router-dom';
 
-function useSpecificAlbums(token: string): SpecificAlbumState {
+function useSpecificAlbums(token: string, albumID: string): SpecificAlbumState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificAlbum);
-  const { albumID } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
