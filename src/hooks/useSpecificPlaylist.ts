@@ -8,12 +8,7 @@ import {
 } from '../store/slices/specificPlaylistSlice';
 import apiClient from '../services/api-client';
 
-function useFeaturedPlaylist(
-  token: string,
-  playlistID: string,
-  country?: string,
-  limit?: number
-): SpecificPlaylistState {
+function useFeaturedPlaylist(token: string, playlistID: string): SpecificPlaylistState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificPlaylist);
 
@@ -27,12 +22,7 @@ function useFeaturedPlaylist(
       try {
         dispatch(setLoading(true));
 
-        const specificPlaylistData = await apiClient.get(`/playlists/${playlistID}`, {
-          params: {
-            limit: limit,
-            country: country
-          }
-        });
+        const specificPlaylistData = await apiClient.get(`/playlists/${playlistID}`);
 
         dispatch(setData(specificPlaylistData.data));
 
