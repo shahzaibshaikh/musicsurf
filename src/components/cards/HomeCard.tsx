@@ -52,7 +52,7 @@ function HomeCard({ data }: HomeCardProps) {
             color='gray.300'
             fontWeight={500}
             lineHeight={1.7}
-            noOfLines={2}
+            noOfLines={1}
             overflowWrap='break-word'
           >
             {formattedList}

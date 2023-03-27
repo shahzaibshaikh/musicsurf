@@ -54,7 +54,7 @@ function AlbumCard({ data }: AlbumCardProps) {
               color='gray.300'
               fontWeight={500}
               lineHeight={1.7}
-              noOfLines={2}
+              noOfLines={1}
               overflowWrap='break-word'
             >
               {data?.release_date.split('-')[0]} &#8226; {formattedList}

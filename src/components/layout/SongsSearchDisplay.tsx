@@ -8,7 +8,7 @@ interface SongSearchDisplayProps {
 
 function SongsSearchDisplay({ data }: SongSearchDisplayProps) {
   return (
-    <Box marginBottom={6}>
+    <Box marginBottom={12}>
       <Heading fontSize='2xl' marginBottom={4} color='white'>
         Songs
       </Heading>

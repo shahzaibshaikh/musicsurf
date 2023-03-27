@@ -15,7 +15,7 @@ function ArtistDetailHeader({ data }: ArtistDetailHeaderProps) {
           <Text
             fontSize={data?.name?.length > 14 ? '70px' : '95px'}
             fontWeight={700}
-            textShadow='0 0px 12px rgba(0, 0, 0, 1)'
+            textShadow='0 0px 12px rgba(0, 0, 0, 0.5)'
           >
             {data?.name}
           </Text>

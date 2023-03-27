@@ -9,6 +9,7 @@ import SideMenu from './components/layout/SideMenu';
 import useSpotify from './hooks/useSpotify';
 import AlbumDetailScreen from './pages/AlbumDetailScreen';
 import ArtistDetailScreen from './pages/ArtistDetailScreen';
+import PlaylistDetailScreen from './pages/PlaylistDetailScreen';
 
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
@@ -51,6 +52,7 @@ function App(): JSX.Element {
             <Route path='/library' element={<>Library</>} />
             <Route path='/album/:albumID' element={<AlbumDetailScreen />} />
             <Route path='/artist/:artistID' element={<ArtistDetailScreen />} />
+            <Route path='/playlist/:playlistID' element={<PlaylistDetailScreen />} />
           </Routes>
         </GridItem>
       </Grid>

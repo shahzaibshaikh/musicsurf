@@ -9,7 +9,7 @@ interface ArtistSearchDisplayProps {
 
 function ArtistSearchDisplay({ data, variant }: ArtistSearchDisplayProps) {
   return (
-    <Box marginBottom={6}>
+    <Box marginBottom={12}>
       <Heading fontSize='2xl' marginBottom={4} color='white'>
         {variant === 'artist-listing' ? 'Fans also like' : 'Artists'}
       </Heading>

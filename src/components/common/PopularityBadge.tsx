@@ -17,16 +17,10 @@ function PopularityBadge({ score }: PopularityBadgeProps) {
   }
   return (
     <HStack marginTop={-4}>
-      <Text fontWeight={700} textShadow='0 0px 12px rgba(0, 0, 0, 1)'>
+      <Text fontWeight={700} textShadow='0 0px 12px rgba(0, 0, 0, 0.5)'>
         Popularity
       </Text>
-      <Badge
-        colorScheme={color}
-        borderRadius={4}
-        fontSize={14}
-        boxShadow='0 0px 8px rgba(0, 0, 0, .1)'
-        background='#202020'
-      >
+      <Badge colorScheme={color} borderRadius={4} fontSize={14} background='#202020'>
         {score}
       </Badge>
     </HStack>
