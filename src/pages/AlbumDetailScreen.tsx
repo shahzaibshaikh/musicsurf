@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import useSpecificAlbum from '../hooks/useSpecificAlbum';
 import { SpecificAlbumState } from '../store/slices/specificAlbumSlice';
 import AlbumDetailHeader from '../components/layout/AlbumDetailHeader';
-import TrackCard from '../components/cards/TrackCard';
 import { Box, Divider, Heading } from '@chakra-ui/react';
 import { useState } from 'react';
 import { average } from 'color.js';
