@@ -12,7 +12,11 @@ import {
 import apiClient from '../services/api-client';
 import { useParams } from 'react-router-dom';
 
-function useSpecificArtist(token: string, country: string): SpecificArtistState {
+function useSpecificArtist(
+  token: string,
+  country?: string,
+  limit?: number
+): SpecificArtistState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificArtist);
   const { artistID } = useParams();
@@ -32,7 +36,12 @@ function useSpecificArtist(token: string, country: string): SpecificArtistState 
           `/artists/${artistID}/related-artists`
         );
         const responseArtistAlbumData = await apiClient.get(
-          `/artists/${artistID}/albums`
+          `/artists/${artistID}/albums`,
+          {
+            params: {
+              limit: limit
+            }
+          }
         );
         const responseArtistTrackData = await apiClient.get(
           `/artists/${artistID}/top-tracks`,
@@ -44,7 +53,7 @@ function useSpecificArtist(token: string, country: string): SpecificArtistState 
         );
 
         dispatch(setArtistData(responseArtistData.data));
-        dispatch(setRelatedArtistData(responseRelatedArtistData.data));
+        dispatch(setRelatedArtistData(responseRelatedArtistData.data.artists));
         dispatch(setArtistAlbumsData(responseArtistAlbumData.data));
         dispatch(setArtistTrackData(responseArtistTrackData.data.tracks));
 

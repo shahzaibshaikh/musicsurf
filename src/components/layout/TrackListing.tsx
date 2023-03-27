@@ -10,7 +10,7 @@ interface TrackListingProps {
 
 function TrackListing({ data, count, variant }: TrackListingProps) {
   return (
-    <Box marginTop={variant === 'artist-listing' ? -12 : 20}>
+    <Box marginTop={variant === 'artist-listing' ? -12 : 20} marginBottom={6}>
       <Heading fontSize='2xl' marginBottom={6} color='white'>
         {variant === 'artist-listing' ? 'Popular Tracks' : 'Songs'}
       </Heading>

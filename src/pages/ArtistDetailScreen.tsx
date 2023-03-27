@@ -3,13 +3,15 @@ import { average } from 'color.js';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PopularityBadge from '../components/common/PopularityBadge';
+import AlbumSearchDisplay from '../components/layout/AlbumSearchDisplay';
+import ArtistSearchDisplay from '../components/layout/ArtistSearchDisplay';
 import TrackListing from '../components/layout/TrackListing';
 import useSpecificArtist from '../hooks/useSpecificArtist';
 import { SpecificArtistState } from '../store/slices/specificArtistSlice';
 
 function ArtistDetailScreen() {
   const { token } = useSelector((state: any) => state.spotify);
-  const { loading, data }: SpecificArtistState = useSpecificArtist(token, 'PK');
+  const { loading, data }: SpecificArtistState = useSpecificArtist(token, 'PK', 5);
   let colorGenerator: string;
   const [color, setColor] = useState('');
   let count: number = 0;
@@ -55,6 +57,14 @@ function ArtistDetailScreen() {
             data={data?.artist_toptracks}
             variant='artist-listing'
           />
+        )}
+
+        {data?.artist_albums && (
+          <AlbumSearchDisplay variant='artist-listing' data={data?.artist_albums} />
+        )}
+
+        {data?.related_artists && (
+          <ArtistSearchDisplay variant='artist-listing' data={data?.related_artists} />
         )}
       </Box>
     </>

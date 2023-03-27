@@ -18,7 +18,7 @@ function SearchGrid(): JSX.Element {
       {!data && <InitialSearch />}
       {data?.tracks && <SongsSearchDisplay data={data?.tracks} />}
       {data?.albums && <AlbumSearchDisplay data={data?.albums} />}
-      {data?.artists && <ArtistSearchDisplay data={data?.artists} />}
+      {data?.artists && <ArtistSearchDisplay data={data?.artists?.items} />}
       {data?.playlists && <PlaylistSearchDisplay data={data?.playlists} />}
     </Box>
   );
