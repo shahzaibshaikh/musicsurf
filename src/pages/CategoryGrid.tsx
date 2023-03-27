@@ -6,7 +6,7 @@ import CategoryCard from '../components/cards/CategoryCard';
 import CategoryCardSkeleton from '../components/skeletons/CategoryCardSkeleton';
 
 function CategoryGrid(): JSX.Element {
-  const { token } = useSelector((state: any) => state.spotify);
+  const token: string | null = localStorage.getItem('token') ?? '';
   const { loading, data } = useCategories<CategoryState>(token);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 

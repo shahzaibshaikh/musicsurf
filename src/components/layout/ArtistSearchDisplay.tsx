@@ -1,5 +1,5 @@
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
-import { Artist, ArtistItems } from '../../store/slices/searchSlice';
+import { ArtistItems } from '../../store/slices/searchSlice';
 import ArtistCard from '../cards/ArtistCard';
 
 interface ArtistSearchDisplayProps {

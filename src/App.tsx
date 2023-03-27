@@ -10,11 +10,32 @@ import useSpotify from './hooks/useSpotify';
 import AlbumDetailScreen from './pages/AlbumDetailScreen';
 import ArtistDetailScreen from './pages/ArtistDetailScreen';
 import PlaylistDetailScreen from './pages/PlaylistDetailScreen';
+import axios from 'axios';
 
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
 
-  const { loading, error, token } = useSpotify();
+  const getToken = async (): Promise<string> => {
+    const response = await axios.get(import.meta.env.VITE_AUTH_BASE_URL);
+    return response.data.access_token;
+  };
+
+  const storedToken = localStorage.getItem('token');
+  const storedExpiration = localStorage.getItem('tokenExpiration');
+
+  if (
+    !storedToken ||
+    !storedExpiration ||
+    new Date().getTime() > parseInt(storedExpiration)
+  ) {
+    getToken().then(token => {
+      localStorage.setItem('token', token);
+      const expirationTime = new Date().getTime() + 3600 * 1000;
+      localStorage.setItem('tokenExpiration', expirationTime.toString());
+    });
+  }
+
+  // console.log(localStorage.getItem('token'));
 
   return (
     <BrowserRouter>

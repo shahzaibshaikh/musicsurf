@@ -10,7 +10,7 @@ import PlaylistDetailHeader from '../components/layout/PlaylistDetailHeader';
 
 function PlaylistDetailScreen() {
   const { playlistID } = useParams();
-  const { token } = useSelector((state: any) => state.spotify);
+  const token: string | null = localStorage.getItem('token') ?? '';
   const { loading, data } = useSpecificPlaylist(token, playlistID);
   let colorGenerator: string;
   const [color, setColor] = useState('');

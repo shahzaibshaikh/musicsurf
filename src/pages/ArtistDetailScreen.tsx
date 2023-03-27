@@ -1,7 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { average } from 'color.js';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AlbumSearchDisplay from '../components/layout/AlbumSearchDisplay';
 import ArtistDetailHeader from '../components/layout/ArtistDetailHeader';
@@ -12,7 +11,7 @@ import { SpecificArtistState } from '../store/slices/specificArtistSlice';
 
 function ArtistDetailScreen() {
   const { artistID } = useParams();
-  const { token } = useSelector((state: any) => state.spotify);
+  const token: string | null = localStorage.getItem('token') ?? '';
   const { loading, data }: SpecificArtistState = useSpecificArtist(
     token,
     artistID,

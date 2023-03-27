@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
 import useSearch from '../hooks/useSearch';
 import InitialSearch from './InitialSearch';
 import SongsSearchDisplay from '../components/layout/SongsSearchDisplay';
@@ -8,7 +7,7 @@ import ArtistSearchDisplay from '../components/layout/ArtistSearchDisplay';
 import PlaylistSearchDisplay from '../components/layout/PlaylistSearchDisplay';
 
 function SearchGrid(): JSX.Element {
-  const { token } = useSelector((state: any) => state.spotify);
+  const token: string | null = localStorage.getItem('token') ?? '';
 
   const limit = 5;
   const { loading, data } = useSearch(token, limit);

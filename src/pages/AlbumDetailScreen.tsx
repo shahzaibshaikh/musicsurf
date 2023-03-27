@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 
 function AlbumDetailScreen() {
   const { albumID } = useParams();
-  const { token } = useSelector((state: any) => state.spotify);
+  const token: string | null = localStorage.getItem('token') ?? '';
   const { loading, data }: SpecificAlbumState = useSpecificAlbum(token, albumID);
   let colorGenerator: string;
   const [color, setColor] = useState('');
