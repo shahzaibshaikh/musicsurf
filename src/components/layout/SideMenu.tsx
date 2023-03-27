@@ -15,8 +15,8 @@ const menuOptions = [
     slug: 'categories',
     path: '/categories',
     icon: TbCategory
-  },
-  { id: 4, name: 'Your Library', slug: 'library', path: '/library', icon: IoLibrary }
+  }
+  // { id: 4, name: 'Your Library', slug: 'library', path: '/library', icon: IoLibrary }
 ];
 
 interface SideMenuProps {
