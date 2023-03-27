@@ -22,7 +22,7 @@ function ArtistDetailScreen() {
 
   return (
     <>
-      <Box position='relative' height='400px'>
+      <Box position='relative' height='350px'>
         <Image
           src={data?.artist_data?.images[0]?.url}
           height='100%'
