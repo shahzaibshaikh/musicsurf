@@ -8,7 +8,10 @@ import {
 } from '../store/slices/specificAlbumSlice';
 import apiClient from '../services/api-client';
 
-function useSpecificAlbums(token: string, albumID: string): SpecificAlbumState {
+function useSpecificAlbums(
+  token: string,
+  albumID: string | undefined
+): SpecificAlbumState {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.specificAlbum);
 

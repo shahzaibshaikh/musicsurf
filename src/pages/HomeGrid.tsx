@@ -4,14 +4,33 @@ import useAlbums from '../hooks/useAlbums';
 import { useSelector } from 'react-redux';
 import { Albums, AlbumState } from '../store/slices/albumSlice';
 import HomeCardSkeleton from '../components/skeletons/HomeCardSkeleton';
+import useFeaturedPlaylist from '../hooks/useFeaturedPlaylist';
+import { PlaylistItems } from '../store/slices/searchSlice';
+import FeaturedPlaylistCard from '../components/cards/FeaturedPlaylistCard';
 
 function HomeGrid(): JSX.Element {
   const { token } = useSelector((state: any) => state.spotify);
-  const { loading, error, data } = useAlbums<AlbumState>(token, 40, 'PK');
+  const { loading, data } = useAlbums<AlbumState>(token, 40, 'PK');
+  const { loading: playlistLoading, data: playlistData } = useFeaturedPlaylist(
+    token,
+    'PK',
+    6
+  );
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return (
     <Box className='main-grid-container'>
+      <Heading fontSize='2xl' marginBottom={4} color='white'>
+        Featured playlists
+      </Heading>
+
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 3 }} gap={6} marginBottom={8}>
+        {playlistData &&
+          playlistData?.featured_playlist?.playlists?.items?.map(
+            (item: PlaylistItems) => <FeaturedPlaylistCard key={item.id} data={item} />
+          )}
+      </SimpleGrid>
+
       <Heading fontSize='2xl' marginBottom={4} color='white'>
         New Releases
       </Heading>

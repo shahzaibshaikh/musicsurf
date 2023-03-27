@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import albumReducer from './slices/albumSlice';
 import categoryReducer from './slices/categorySlice';
+import featuredPlaylistReducer from './slices/featuredPlaylistSlice';
 import searchReducer from './slices/searchSlice';
 import specificAlbumReducer from './slices/specificAlbumSlice';
 import specificArtistReducer from './slices/specificArtistSlice';
@@ -13,6 +14,7 @@ export const store = configureStore({
     categories: categoryReducer,
     search: searchReducer,
     specificAlbum: specificAlbumReducer,
-    specificArtist: specificArtistReducer
+    specificArtist: specificArtistReducer,
+    featuredPlaylist: featuredPlaylistReducer
   }
 });
