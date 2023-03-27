@@ -1,5 +1,5 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CategoryGrid from './pages/CategoryGrid';
 import HomeGrid from './pages/HomeGrid';
@@ -14,25 +14,27 @@ import axios from 'axios';
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
 
-  const getToken = async (): Promise<string> => {
-    const response = await axios.get(import.meta.env.VITE_AUTH_BASE_URL);
-    return response.data.access_token;
-  };
+  useEffect(() => {
+    const getToken = async (): Promise<string> => {
+      const response = await axios.get(import.meta.env.VITE_AUTH_BASE_URL);
+      return response.data.access_token;
+    };
 
-  const storedToken = localStorage.getItem('token');
-  const storedExpiration = localStorage.getItem('tokenExpiration');
+    const storedToken = localStorage.getItem('token');
+    const storedExpiration = localStorage.getItem('tokenExpiration');
 
-  if (
-    !storedToken ||
-    !storedExpiration ||
-    new Date().getTime() > parseInt(storedExpiration)
-  ) {
-    getToken().then(token => {
-      localStorage.setItem('token', token);
-      const expirationTime = new Date().getTime() + 3600 * 1000;
-      localStorage.setItem('tokenExpiration', expirationTime.toString());
-    });
-  }
+    if (
+      !storedToken ||
+      !storedExpiration ||
+      new Date().getTime() > parseInt(storedExpiration)
+    ) {
+      getToken().then(token => {
+        localStorage.setItem('token', token);
+        const expirationTime = new Date().getTime() + 3600 * 1000;
+        localStorage.setItem('tokenExpiration', expirationTime.toString());
+      });
+    }
+  }, []);
 
   // console.log(localStorage.getItem('token'));
 
