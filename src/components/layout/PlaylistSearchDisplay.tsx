@@ -4,13 +4,14 @@ import PlaylistCard from '../cards/PlaylistCard';
 
 interface PlaylistSearchDisplayProps {
   data: Playlist;
+  variant?: 'category-playlist' | null;
 }
 
-function PlaylistSearchDisplay({ data }: PlaylistSearchDisplayProps) {
+function PlaylistSearchDisplay({ data, variant }: PlaylistSearchDisplayProps) {
   return (
     <Box>
       <Heading fontSize='2xl' marginBottom={4} color='white'>
-        Playlists
+        {variant === 'category-playlist' ? 'Featured Playlists' : 'Playlists'}
       </Heading>
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={6}>
         {data?.items.map((item: PlaylistItems) => (

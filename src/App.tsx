@@ -10,6 +10,7 @@ import AlbumDetailScreen from './pages/AlbumDetailScreen';
 import ArtistDetailScreen from './pages/ArtistDetailScreen';
 import PlaylistDetailScreen from './pages/PlaylistDetailScreen';
 import axios from 'axios';
+import CategoryDetailScreen from './pages/CategoryDetailScreen';
 
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
@@ -75,6 +76,7 @@ function App(): JSX.Element {
             <Route path='/album/:albumID' element={<AlbumDetailScreen />} />
             <Route path='/artist/:artistID' element={<ArtistDetailScreen />} />
             <Route path='/playlist/:playlistID' element={<PlaylistDetailScreen />} />
+            <Route path='/categories/:categoryID' element={<CategoryDetailScreen />} />
           </Routes>
         </GridItem>
       </Grid>
