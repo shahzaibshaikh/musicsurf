@@ -18,7 +18,7 @@ function AlbumDetailScreen() {
 
   data?.images &&
     average(data?.images[0]?.url, { amount: 1 }).then(color => {
-      colorGenerator = `rgb(${color[0]},${color[1]},${color[2]})`;
+      colorGenerator = `rgb(${color[0]},${color[1]},${color[2]}, 0.6)`;
       setColor(colorGenerator);
     });
 

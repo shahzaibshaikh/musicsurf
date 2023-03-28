@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Error, Playlist, PlaylistItems } from './searchSlice';
+import { Error, Images, Playlist, PlaylistItems } from './searchSlice';
 
 export interface Category {
   name: string;
   id: string;
+  icons: Images[];
 }
 
 export interface SpecificCategoryData {
