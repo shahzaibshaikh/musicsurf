@@ -13,21 +13,23 @@ function NavBar(): JSX.Element {
 
   return (
     <HStack className='nav-styles' spacing={5}>
-      <Show breakpoint='(max-width: 992px)'>
-        <Image src={LogoIcon} height='35px' />
-      </Show>
+      <HStack gap={3}>
+        <Show breakpoint='(max-width: 992px)'>
+          <Image src={LogoIcon} height='35px' />
+        </Show>
 
-      {shouldRenderSearchInput ? (
-        <SearchInput />
-      ) : (
-        <IconButton
-          borderRadius='50%'
-          variant='outline'
-          colorScheme='white'
-          aria-label='Go back'
-          icon={<IoIosArrowBack />}
-        />
-      )}
+        {shouldRenderSearchInput ? (
+          <SearchInput />
+        ) : (
+          <IconButton
+            borderRadius='50%'
+            variant='outline'
+            colorScheme='white'
+            aria-label='Go back'
+            icon={<IoIosArrowBack />}
+          />
+        )}
+      </HStack>
     </HStack>
   );
 }
