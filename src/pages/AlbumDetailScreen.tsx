@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { average } from 'color.js';
 import TrackListing from '../components/layout/TrackListing';
 import { useParams } from 'react-router-dom';
+import AlbumDetailSkeleton from '../components/skeletons/AlbumDetailSkeleton';
 
 function AlbumDetailScreen() {
   const { albumID } = useParams();
@@ -23,15 +24,21 @@ function AlbumDetailScreen() {
     });
 
   return (
-    <Box
-      className='album-grid-container'
-      background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
-    >
-      {data && <AlbumDetailHeader data={data} />}
-      {data?.tracks && <TrackListing data={data.tracks.items} count={count} />}
+    <>
+      {loading ? (
+        <AlbumDetailSkeleton />
+      ) : (
+        <Box
+          className='album-grid-container'
+          background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
+        >
+          {data && <AlbumDetailHeader data={data} />}
+          {data?.tracks && <TrackListing data={data.tracks.items} count={count} />}
 
-      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
-    </Box>
+          <Divider color='#121212' marginTop='80px' marginBottom='40px' />
+        </Box>
+      )}
+    </>
   );
 }
 

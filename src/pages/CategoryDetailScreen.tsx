@@ -5,6 +5,7 @@ import PlaylistSearchDisplay from '../components/layout/PlaylistSearchDisplay';
 import useSpecificCategory from '../hooks/useSpecificCategory';
 import { SpecificCategoryState } from '../store/slices/specificCategorySlice';
 import { useState } from 'react';
+import CategoryDetailSkeleton from '../components/skeletons/CategoryDetailSkeleton';
 
 function CategoryDetailScreen() {
   const { categoryID } = useParams();
@@ -20,24 +21,30 @@ function CategoryDetailScreen() {
     });
 
   return (
-    <Box
-      className='main-grid-container'
-      background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
-    >
-      {data?.category?.name && (
-        <Heading
-          fontSize={data?.category?.name?.length > 18 ? '50px' : '85px'}
-          marginBottom={12}
-          color='white'
+    <>
+      {loading ? (
+        <CategoryDetailSkeleton />
+      ) : (
+        <Box
+          className='main-grid-container'
+          background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
         >
-          {data?.category?.name}
-        </Heading>
-      )}
+          {data?.category?.name && (
+            <Heading
+              fontSize={data?.category?.name?.length > 18 ? '50px' : '85px'}
+              marginBottom={12}
+              color='white'
+            >
+              {data?.category?.name}
+            </Heading>
+          )}
 
-      {data?.playlists?.items && (
-        <PlaylistSearchDisplay variant='category-playlist' data={data?.playlists} />
+          {data?.playlists?.items && (
+            <PlaylistSearchDisplay variant='category-playlist' data={data?.playlists} />
+          )}
+        </Box>
       )}
-    </Box>
+    </>
   );
 }
 
