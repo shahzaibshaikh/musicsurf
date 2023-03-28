@@ -17,6 +17,8 @@ function NavBar(): JSX.Element {
   const shouldRenderSearchInput =
     !location.pathname.split('/')[2] && location.pathname.split('/')[1] === 'search';
 
+  const shouldRenderBackButton = location.pathname.split('/')[2] && true;
+
   return (
     <HStack className='nav-styles' spacing={5}>
       <HStack gap={3}>
@@ -24,9 +26,8 @@ function NavBar(): JSX.Element {
           <Image src={LogoIcon} height='35px' />
         </Show>
 
-        {shouldRenderSearchInput ? (
-          <SearchInput />
-        ) : (
+        {shouldRenderSearchInput && <SearchInput />}
+        {shouldRenderBackButton && (
           <IconButton
             onClick={handleGoBack}
             borderRadius='50%'
