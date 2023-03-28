@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import useSpecificPlaylist from '../hooks/useSpecificPlaylist';
 import ArtistDetailHeader from '../components/layout/ArtistDetailHeader';
 import PlaylistDetailHeader from '../components/layout/PlaylistDetailHeader';
+import PlaylistDetailSkeleton from '../components/skeletons/PlaylistDetailSkeleton';
 
 function PlaylistDetailScreen() {
   const { playlistID } = useParams();
@@ -23,21 +24,27 @@ function PlaylistDetailScreen() {
     });
 
   return (
-    <Box
-      className='playlist-grid-container'
-      background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
-    >
-      {data && <PlaylistDetailHeader data={data} />}
-      {data?.tracks && (
-        <TrackListing
-          data={data?.tracks?.items}
-          count={count}
-          variant='playlist-listing'
-        />
-      )}
+    <>
+      {loading ? (
+        <PlaylistDetailSkeleton />
+      ) : (
+        <Box
+          className='playlist-grid-container'
+          background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
+        >
+          {data && <PlaylistDetailHeader data={data} />}
+          {data?.tracks && (
+            <TrackListing
+              data={data?.tracks?.items}
+              count={count}
+              variant='playlist-listing'
+            />
+          )}
 
-      <Divider color='#121212' marginTop='80px' marginBottom='40px' />
-    </Box>
+          <Divider color='#121212' marginTop='80px' marginBottom='40px' />
+        </Box>
+      )}
+    </>
   );
 }
 

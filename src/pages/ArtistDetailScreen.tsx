@@ -6,6 +6,7 @@ import AlbumSearchDisplay from '../components/layout/AlbumSearchDisplay';
 import ArtistDetailHeader from '../components/layout/ArtistDetailHeader';
 import ArtistSearchDisplay from '../components/layout/ArtistSearchDisplay';
 import TrackListing from '../components/layout/TrackListing';
+import ArtistDetailSkeleton from '../components/skeletons/ArtistDetailSkeleton';
 import useSpecificArtist from '../hooks/useSpecificArtist';
 import { SpecificArtistState } from '../store/slices/specificArtistSlice';
 
@@ -30,27 +31,36 @@ function ArtistDetailScreen() {
 
   return (
     <>
-      {data?.artist_data && <ArtistDetailHeader data={data?.artist_data} />}
-      <Box
-        className='artist-grid-container'
-        background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
-      >
-        {data?.artist_toptracks && (
-          <TrackListing
-            count={count}
-            data={data?.artist_toptracks}
-            variant='artist-listing'
-          />
-        )}
+      {loading ? (
+        <ArtistDetailSkeleton />
+      ) : (
+        <>
+          {data?.artist_data && <ArtistDetailHeader data={data?.artist_data} />}
+          <Box
+            className='artist-grid-container'
+            background={`linear-gradient(180deg, ${color} 0%, rgba(18, 18, 18, 1) 100%)`}
+          >
+            {data?.artist_toptracks && (
+              <TrackListing
+                count={count}
+                data={data?.artist_toptracks}
+                variant='artist-listing'
+              />
+            )}
 
-        {data?.artist_albums && (
-          <AlbumSearchDisplay variant='artist-listing' data={data?.artist_albums} />
-        )}
+            {data?.artist_albums && (
+              <AlbumSearchDisplay variant='artist-listing' data={data?.artist_albums} />
+            )}
 
-        {data?.related_artists && (
-          <ArtistSearchDisplay variant='artist-listing' data={data?.related_artists} />
-        )}
-      </Box>
+            {data?.related_artists && (
+              <ArtistSearchDisplay
+                variant='artist-listing'
+                data={data?.related_artists}
+              />
+            )}
+          </Box>
+        </>
+      )}
     </>
   );
 }
