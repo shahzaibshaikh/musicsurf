@@ -33,7 +33,7 @@ function useSpecificCategory(
           `/browse/categories/${categoryID}/playlists`,
           {
             params: {
-              limit: 10
+              limit: 15
             }
           }
         );
