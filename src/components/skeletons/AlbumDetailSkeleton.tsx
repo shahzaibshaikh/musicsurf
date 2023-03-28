@@ -7,10 +7,10 @@ function AlbumDetailSkeleton() {
     <Box className='album-grid-container'>
       <HStack marginBottom={14}>
         <Skeleton width='250px' height='250px' />
-        <SkeletonText fontSize='60px' marginBottom={12} color='white' width='400px' />
+        <SkeletonText fontSize='60px' marginBottom={12} width='400px' />
       </HStack>
       <Box>
-        <SkeletonText fontSize='20px' marginBottom={6} color='white' width='200px' />
+        <SkeletonText fontSize='20px' marginBottom={6} width='200px' />
         <Box marginTop={16} marginBottom={6}>
           {skeletons.map(skeleton => (
             <TrackCardSkeleton key={skeleton} />
