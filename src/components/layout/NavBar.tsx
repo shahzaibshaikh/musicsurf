@@ -2,6 +2,8 @@ import { HStack, Image, Show } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import LogoIcon from '../../assets/favicon.svg';
 import SearchInput from '../common/SearchInput';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IconButton } from '@chakra-ui/react';
 
 function NavBar(): JSX.Element {
   const location = useLocation();
@@ -15,7 +17,17 @@ function NavBar(): JSX.Element {
         <Image src={LogoIcon} height='35px' />
       </Show>
 
-      {shouldRenderSearchInput && <SearchInput />}
+      {shouldRenderSearchInput ? (
+        <SearchInput />
+      ) : (
+        <IconButton
+          borderRadius='50%'
+          variant='outline'
+          colorScheme='white'
+          aria-label='Go back'
+          icon={<IoIosArrowBack />}
+        />
+      )}
     </HStack>
   );
 }
