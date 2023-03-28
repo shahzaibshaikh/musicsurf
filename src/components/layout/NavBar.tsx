@@ -3,6 +3,11 @@ import LogoIcon from '../../assets/favicon.svg';
 import SearchInput from '../common/SearchInput';
 
 function NavBar(): JSX.Element {
+  console.log(
+    !window.location.pathname.split('/')[2] &&
+      window.location.pathname.split('/')[1] === 'search'
+  );
+
   return (
     <HStack className='nav-styles' spacing={5}>
       <Show breakpoint='(max-width: 992px)'>

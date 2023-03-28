@@ -13,7 +13,10 @@ function ArtistDetailHeader({ data }: ArtistDetailHeaderProps) {
       <Box position='absolute' top='20%' left='0' className='grid-container'>
         {data?.name && (
           <Text
-            fontSize={data?.name?.length > 14 ? '70px' : '95px'}
+            fontSize={{
+              base: data?.name?.length > 20 ? '20px' : '40px',
+              lg: data?.name?.length > 20 ? '60px' : '85px'
+            }}
             fontWeight={700}
             textShadow='0 0px 12px rgba(0, 0, 0, 0.5)'
             color='white'

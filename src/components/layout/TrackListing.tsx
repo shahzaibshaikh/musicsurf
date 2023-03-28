@@ -17,8 +17,6 @@ function TrackListing({ data, count, variant }: TrackListingProps) {
 
       {variant === 'playlist-listing'
         ? data.map((item: PlaylistTrack) => {
-            console.log(item);
-
             count++;
             return <TrackCard key={item?.track?.id} data={item?.track} count={count} />;
           })

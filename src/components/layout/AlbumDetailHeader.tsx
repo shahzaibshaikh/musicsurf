@@ -31,7 +31,10 @@ function AlbumDetailHeader({ data }: AlbumDetailHeaderProps) {
         </Text>
         {data?.name && (
           <Text
-            fontSize={data?.name?.length > 20 ? '50px' : '75px'}
+            fontSize={{
+              base: data?.name?.length > 20 ? '20px' : '40px',
+              lg: data?.name?.length > 20 ? '50px' : '75px'
+            }}
             fontWeight={700}
             color='white'
           >

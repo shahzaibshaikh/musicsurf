@@ -31,7 +31,10 @@ function CategoryDetailScreen() {
         >
           {data?.category?.name && (
             <Heading
-              fontSize={data?.category?.name?.length > 18 ? '50px' : '85px'}
+              fontSize={{
+                base: data?.category?.name?.length > 15 ? '40px' : '60px',
+                lg: data?.category?.name?.length > 20 ? '60px' : '85px'
+              }}
               marginBottom={12}
               color='white'
             >
