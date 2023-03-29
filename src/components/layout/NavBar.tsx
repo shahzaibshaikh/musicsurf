@@ -1,4 +1,5 @@
-import { HStack, Image, Show } from '@chakra-ui/react';
+import { HStack, Image, Link, Show } from '@chakra-ui/react';
+import { Link as ReactLink } from 'react-router-dom';
 import { IconButton } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import LogoIcon from '../../assets/favicon.svg';
@@ -36,7 +37,9 @@ function NavBar(): JSX.Element {
       <HStack className='nav-styles' spacing={5}>
         <HStack gap={3} width='100vw'>
           <Show breakpoint='(max-width: 992px)'>
-            <Image src={LogoIcon} height='35px' />
+            <Link as={ReactLink} to='/'>
+              <Image src={LogoIcon} height='35px' />
+            </Link>
           </Show>
 
           {shouldRenderSearchInput && <SearchInput />}

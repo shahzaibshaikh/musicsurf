@@ -27,7 +27,9 @@ interface SideMenuProps {
 function SideMenu({ setOnSearch, selectedPage }: SideMenuProps): JSX.Element {
   return (
     <Box className='side-menu-container'>
-      <Image src={BrandImage} height='25px' marginTop={5} marginLeft={7} />
+      <Link as={ReactLink} to='/'>
+        <Image src={BrandImage} height='25px' marginTop={5} marginLeft={7} />
+      </Link>
       <List paddingLeft={7} spacing={5} marginTop={14}>
         {menuOptions.map(option => (
           <ListItem key={option.id} onClick={() => setOnSearch(option.slug)}>
