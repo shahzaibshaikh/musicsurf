@@ -22,7 +22,7 @@ function NavBar(): JSX.Element {
 
   return (
     <HStack className='nav-styles' spacing={5}>
-      <HStack gap={3}>
+      <HStack gap={3} width='100vw'>
         <Show breakpoint='(max-width: 992px)'>
           <Image src={LogoIcon} height='35px' />
         </Show>

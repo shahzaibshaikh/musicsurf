@@ -15,16 +15,17 @@ function SearchInput(): JSX.Element {
         dispatch(setSearch(searchQuery));
       }}
     >
-      <InputGroup>
+      <InputGroup
+        width={{
+          base: '100%',
+          lg: '530px'
+        }}
+      >
         <InputLeftElement children={<BsSearch color='black' />} />
 
         <Input
           onChange={event => setSearchQuery(event.target.value)}
           value={searchQuery}
-          width={{
-            base: '100%',
-            lg: '530px'
-          }}
           borderRadius={20}
           placeholder='What do you want to listen to?'
           variant='filled'
