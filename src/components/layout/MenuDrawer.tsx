@@ -46,14 +46,15 @@ function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
           marginRight={4}
           marginTop={2}
           height='40px'
-          border='1px solid white'
+          borderColor='white'
+          border='1px solid'
           width='30px'
           as={IconButton}
           borderRadius='50%'
           variant='outline'
           colorScheme='white'
           aria-label='Go back'
-          icon={<IoIosArrowBack />}
+          icon={<IoIosArrowBack color='white' />}
         />
 
         <DrawerBody>

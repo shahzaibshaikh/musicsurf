@@ -46,11 +46,13 @@ function NavBar(): JSX.Element {
           {shouldRenderBackButton && (
             <IconButton
               onClick={handleGoBack}
+              color='white'
+              borderColor='white'
               borderRadius='50%'
               variant='outline'
               colorScheme='white'
               aria-label='Go back'
-              icon={<IoIosArrowBack />}
+              icon={<IoIosArrowBack color='white' />}
             />
           )}
         </HStack>
@@ -58,10 +60,12 @@ function NavBar(): JSX.Element {
         <IconButton
           onClick={handleDrawerOpen}
           borderRadius='50%'
+          borderColor='white'
           variant='outline'
+          color='white'
           colorScheme='white'
           aria-label='Collapsible'
-          icon={<RxHamburgerMenu />}
+          icon={<RxHamburgerMenu color='white' />}
         />
       </HStack>
       <MenuDrawer isOpen={isDrawerOpen} onClose={handleDrawerClose} />
