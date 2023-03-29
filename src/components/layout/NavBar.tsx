@@ -1,10 +1,11 @@
 import { HStack, Image, Show } from '@chakra-ui/react';
+import { IconButton } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import LogoIcon from '../../assets/favicon.svg';
 import { useNavigate } from 'react-router-dom';
 import SearchInput from '../common/SearchInput';
 import { IoIosArrowBack } from 'react-icons/io';
-import { IconButton } from '@chakra-ui/react';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 function NavBar(): JSX.Element {
   const location = useLocation();
@@ -38,6 +39,14 @@ function NavBar(): JSX.Element {
           />
         )}
       </HStack>
+
+      <IconButton
+        borderRadius='50%'
+        variant='outline'
+        colorScheme='white'
+        aria-label='Collapsible'
+        icon={<RxHamburgerMenu />}
+      />
     </HStack>
   );
 }
