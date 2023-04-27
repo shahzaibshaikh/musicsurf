@@ -30,6 +30,7 @@ function App(): JSX.Element {
       !storedExpiration ||
       new Date().getTime() > parseInt(storedExpiration)
     ) {
+      setIsTokenReady(false);
       getToken().then(token => {
         localStorage.setItem('token', token);
         const expirationTime = new Date().getTime() + 3600 * 1000;
