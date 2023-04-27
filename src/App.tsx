@@ -72,7 +72,6 @@ function App(): JSX.Element {
             <Route path='/' element={<HomeGrid />} />
             <Route path='/search' element={<SearchGrid />} />
             <Route path='/categories' element={<CategoryGrid />} />
-            <Route path='/library' element={<>Library</>} />
             <Route path='/album/:albumID' element={<AlbumDetailScreen />} />
             <Route path='/artist/:artistID' element={<ArtistDetailScreen />} />
             <Route path='/playlist/:playlistID' element={<PlaylistDetailScreen />} />
