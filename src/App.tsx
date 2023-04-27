@@ -14,6 +14,7 @@ import CategoryDetailScreen from './pages/CategoryDetailScreen';
 
 function App(): JSX.Element {
   const [selectedPage, setSelectedPage] = useState<string>('');
+  const [isTokenReady, setIsTokenReady] = useState(true);
 
   useEffect(() => {
     const getToken = async (): Promise<string> => {
@@ -33,6 +34,7 @@ function App(): JSX.Element {
         localStorage.setItem('token', token);
         const expirationTime = new Date().getTime() + 3600 * 1000;
         localStorage.setItem('tokenExpiration', expirationTime.toString());
+        setIsTokenReady(true);
       });
     }
   }, []);
@@ -41,44 +43,46 @@ function App(): JSX.Element {
 
   return (
     <BrowserRouter>
-      <Grid
-        templateAreas={{
-          base: `"nav" "main"`,
-          lg: `"aside nav" "aside main"`
-        }}
-        gridTemplateColumns={{
-          base: '1fr',
-          lg: '240px'
-        }}
-      >
-        {/* Navbar */}
-        <GridItem area='nav'>
-          <NavBar />
-        </GridItem>
-
-        {/* Side Menu */}
-        <Show above='lg'>
-          <GridItem area='aside'>
-            <SideMenu
-              selectedPage={selectedPage}
-              setOnSearch={(page: string) => setSelectedPage(page)}
-            />
+      {isTokenReady && (
+        <Grid
+          templateAreas={{
+            base: `"nav" "main"`,
+            lg: `"aside nav" "aside main"`
+          }}
+          gridTemplateColumns={{
+            base: '1fr',
+            lg: '240px'
+          }}
+        >
+          {/* Navbar */}
+          <GridItem area='nav'>
+            <NavBar />
           </GridItem>
-        </Show>
 
-        {/* Main Page */}
-        <GridItem area='main' background='gray.800'>
-          <Routes>
-            <Route path='/' element={<HomeGrid />} />
-            <Route path='/search' element={<SearchGrid />} />
-            <Route path='/categories' element={<CategoryGrid />} />
-            <Route path='/album/:albumID' element={<AlbumDetailScreen />} />
-            <Route path='/artist/:artistID' element={<ArtistDetailScreen />} />
-            <Route path='/playlist/:playlistID' element={<PlaylistDetailScreen />} />
-            <Route path='/categories/:categoryID' element={<CategoryDetailScreen />} />
-          </Routes>
-        </GridItem>
-      </Grid>
+          {/* Side Menu */}
+          <Show above='lg'>
+            <GridItem area='aside'>
+              <SideMenu
+                selectedPage={selectedPage}
+                setOnSearch={(page: string) => setSelectedPage(page)}
+              />
+            </GridItem>
+          </Show>
+
+          {/* Main Page */}
+          <GridItem area='main' background='gray.800'>
+            <Routes>
+              <Route path='/' element={<HomeGrid />} />
+              <Route path='/search' element={<SearchGrid />} />
+              <Route path='/categories' element={<CategoryGrid />} />
+              <Route path='/album/:albumID' element={<AlbumDetailScreen />} />
+              <Route path='/artist/:artistID' element={<ArtistDetailScreen />} />
+              <Route path='/playlist/:playlistID' element={<PlaylistDetailScreen />} />
+              <Route path='/categories/:categoryID' element={<CategoryDetailScreen />} />
+            </Routes>
+          </GridItem>
+        </Grid>
+      )}
     </BrowserRouter>
   );
 }
