@@ -23,7 +23,6 @@ function App(): JSX.Element {
     };
 
     const storedToken = localStorage.getItem('token');
-    const storedExpiration = localStorage.getItem('tokenExpiration');
 
     if (
       !storedToken ||
