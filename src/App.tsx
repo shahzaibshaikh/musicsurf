@@ -25,7 +25,11 @@ function App(): JSX.Element {
     const storedToken = localStorage.getItem('token');
     const storedExpiration = localStorage.getItem('tokenExpiration');
 
-    if (!storedExpiration || new Date().getTime() > parseInt(storedExpiration)) {
+    if (
+      !storedToken ||
+      !storedExpiration ||
+      new Date().getTime() > parseInt(storedExpiration)
+    ) {
       setIsTokenReady(false);
       getToken().then(token => {
         localStorage.setItem('token', token);
