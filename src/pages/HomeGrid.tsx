@@ -1,7 +1,6 @@
 import { Box, Divider, Heading, SimpleGrid } from '@chakra-ui/react';
 import HomeCard from '../components/cards/HomeCard';
 import useAlbums from '../hooks/useAlbums';
-import { useSelector } from 'react-redux';
 import { Albums, AlbumState } from '../store/slices/albumSlice';
 import HomeCardSkeleton from '../components/skeletons/HomeCardSkeleton';
 import useFeaturedPlaylist from '../hooks/useFeaturedPlaylist';
