@@ -8,7 +8,6 @@ import {
   LinkBox
 } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
-import placeholderImage from '../../assets/255-2554719_a-generic-square-placeholder-image-with-rounded-corners.png';
 import { Albums } from '../../store/slices/albumSlice';
 import formatList from '../../utilities/textFormatter';
 
