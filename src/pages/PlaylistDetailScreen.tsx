@@ -3,9 +3,7 @@ import { Box, Divider } from '@chakra-ui/react';
 import { useState } from 'react';
 import { average } from 'color.js';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import useSpecificPlaylist from '../hooks/useSpecificPlaylist';
-import ArtistDetailHeader from '../components/layout/ArtistDetailHeader';
 import PlaylistDetailHeader from '../components/layout/PlaylistDetailHeader';
 import PlaylistDetailSkeleton from '../components/skeletons/PlaylistDetailSkeleton';
 
