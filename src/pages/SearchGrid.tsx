@@ -10,7 +10,7 @@ function SearchGrid(): JSX.Element {
   const token: string | null = localStorage.getItem('token') ?? '';
 
   const limit = 5;
-  const { loading, data } = useSearch(token, limit);
+  const { data } = useSearch(token, limit);
 
   return (
     <Box className='grid-container'>
