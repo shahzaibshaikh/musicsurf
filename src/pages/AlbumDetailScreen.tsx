@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import useSpecificAlbum from '../hooks/useSpecificAlbum';
 import { SpecificAlbumState } from '../store/slices/specificAlbumSlice';
 import AlbumDetailHeader from '../components/layout/AlbumDetailHeader';
