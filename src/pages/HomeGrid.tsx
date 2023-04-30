@@ -28,7 +28,7 @@ function HomeGrid(): JSX.Element {
           )}
       </SimpleGrid>
 
-      <Heading fontSize='xl' marginBottom={4} color='white'>
+      <Heading fontSize='2xl' marginBottom={4} color='white'>
         New Releases
       </Heading>
 
