@@ -21,7 +21,7 @@ function PlaylistCard({ data }: PlaylistCardProps) {
       <Card
         background='#1b1b1b'
         _hover={{ background: '#262626', transition: '300ms' }}
-        padding={4}
+        padding={2}
         boxShadow='0 8px 8px rgba(0, 0, 0, .1)'
         borderRadius={5}
       >
