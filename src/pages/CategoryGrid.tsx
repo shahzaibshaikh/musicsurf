@@ -1,5 +1,4 @@
 import { Box, Heading, SimpleGrid, Divider } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
 import useCategories from '../hooks/useCategories';
 import { Categories, CategoryState } from '../store/slices/categorySlice';
 import CategoryCard from '../components/cards/CategoryCard';
