@@ -1,12 +1,4 @@
-import {
-  Box,
-  Image,
-  HStack,
-  Card,
-  Heading,
-  LinkBox,
-  LinkOverlay
-} from '@chakra-ui/react';
+import { Image, HStack, Card, Heading, LinkBox, LinkOverlay } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import { PlaylistItems } from '../../store/slices/searchSlice';
 
