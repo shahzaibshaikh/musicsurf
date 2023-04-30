@@ -13,7 +13,7 @@ function HomeGrid(): JSX.Element {
   const { loading, data } = useAlbums<AlbumState>(token, 40, 'PK');
   const { data: playlistData } = useFeaturedPlaylist(token, 'PK', 6);
 
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <Box className='main-grid-container'>
