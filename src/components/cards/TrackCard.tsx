@@ -1,7 +1,7 @@
-import { Box, Heading, HStack, Image, Text } from '@chakra-ui/react';
-import { TrackItems } from '../../store/slices/searchSlice';
-import formatTime from '../../utilities/msToMinutes';
-import formatList from '../../utilities/textFormatter';
+import { Box, Heading, HStack, Image, Text } from "@chakra-ui/react";
+import { TrackItems } from "../../store/slices/searchSlice";
+import formatTime from "../../utilities/msToMinutes";
+import formatList from "../../utilities/textFormatter";
 
 interface TrackCardProps {
   data: TrackItems;
@@ -10,12 +10,12 @@ interface TrackCardProps {
 
 function TrackCard({ data, count }: TrackCardProps) {
   const artistList: string[] | undefined = data?.artists.map(artist => artist.name);
-  const formattedList = artistList ? formatList(artistList) : '';
+  const formattedList = artistList ? formatList(artistList) : "";
   return (
     <Box
       padding='4px 8px'
       background='transparent'
-      _hover={{ background: 'rgb(38,38,38,0.6)', transition: '300ms' }}
+      _hover={{ background: "rgb(38,38,38,0.6)", transition: "300ms" }}
       borderRadius={6}
       border='none'
     >

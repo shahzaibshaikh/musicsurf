@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Error {
   status: number;
@@ -35,6 +35,7 @@ export interface PlaylistItems {
         images: Images[];
         duration_ms: number;
         type: string;
+        preview_url: string;
         album: AlbumItems;
         artists: ArtistDetail[];
       };
@@ -123,11 +124,11 @@ const initialState: SearchState = {
   loading: false,
   error: null,
   data: null,
-  searchQuery: ''
+  searchQuery: ""
 };
 
 const searchSlice = createSlice({
-  name: 'search',
+  name: "search",
   initialState,
   reducers: {
     setLoading: (state, action: PayloadAction<boolean>) => {

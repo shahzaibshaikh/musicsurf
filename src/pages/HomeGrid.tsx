@@ -1,17 +1,17 @@
-import { Box, Divider, Heading, SimpleGrid } from '@chakra-ui/react';
-import HomeCard from '../components/cards/HomeCard';
-import useAlbums from '../hooks/useAlbums';
-import { Albums, AlbumState } from '../store/slices/albumSlice';
-import HomeCardSkeleton from '../components/skeletons/HomeCardSkeleton';
-import useFeaturedPlaylist from '../hooks/useFeaturedPlaylist';
-import { PlaylistItems } from '../store/slices/searchSlice';
-import FeaturedPlaylistCard from '../components/cards/FeaturedPlaylistCard';
+import { Box, Divider, Heading, SimpleGrid } from "@chakra-ui/react";
+import HomeCard from "../components/cards/HomeCard";
+import useAlbums from "../hooks/useAlbums";
+import { Albums, AlbumState } from "../store/slices/albumSlice";
+import HomeCardSkeleton from "../components/skeletons/HomeCardSkeleton";
+import useFeaturedPlaylist from "../hooks/useFeaturedPlaylist";
+import { PlaylistItems } from "../store/slices/searchSlice";
+import FeaturedPlaylistCard from "../components/cards/FeaturedPlaylistCard";
 
 function HomeGrid(): JSX.Element {
-  const token: string | null = localStorage.getItem('token') ?? '';
+  const token: string | null = localStorage.getItem("token") ?? "";
 
-  const { loading, data } = useAlbums<AlbumState>(token, 40, 'PK');
-  const { data: playlistData } = useFeaturedPlaylist(token, 'PK', 6);
+  const { loading, data } = useAlbums<AlbumState>(token, 40, "PK");
+  const { data: playlistData } = useFeaturedPlaylist(token, "PK", 6);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
