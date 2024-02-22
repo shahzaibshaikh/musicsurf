@@ -69,6 +69,7 @@ export interface PlaylistTrack {
     popularity: number;
     images: Images[];
     duration_ms: number;
+    preview_url: string;
     type: string;
     album: AlbumItems;
     artists: ArtistDetail[];
