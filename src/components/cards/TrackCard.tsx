@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { TrackItems } from "../../store/slices/searchSlice";
 import formatTime from "../../utilities/msToMinutes";
 import formatList from "../../utilities/textFormatter";
@@ -12,6 +12,7 @@ interface TrackCardProps {
 
 function TrackCard({ data, count }: TrackCardProps) {
   const [playMusic, setPlayMusic] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const artistList: string[] | undefined = data?.artists.map(artist => artist.name);
   const formattedList = artistList ? formatList(artistList) : "";
   return (
@@ -21,9 +22,18 @@ function TrackCard({ data, count }: TrackCardProps) {
       _hover={{ background: "rgb(38,38,38,0.6)", transition: "300ms" }}
       borderRadius={6}
       border='none'
-      onClick={() => setPlayMusic(true)}
+      onClick={() => {
+        setPlayMusic(true);
+        onOpen();
+      }}
     >
-      {playMusic && <AudioTrackPlayer preview_url={data.preview_url} />}
+      <AudioTrackPlayer
+        onClose={onClose}
+        isOpen={isOpen}
+        preview_url={data.preview_url}
+        name={data.name}
+      />
+
       <HStack justifyContent='space-between' alignItems='center' border='none'>
         <HStack gap={2}>
           {data?.album?.images ? (

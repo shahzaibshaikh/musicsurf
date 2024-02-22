@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/index.css";
+import "react-h5-audio-player/lib/styles.css";
 import theme from "./styles/theme";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
