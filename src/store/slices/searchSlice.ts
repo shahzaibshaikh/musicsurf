@@ -79,6 +79,7 @@ export interface TrackItems {
   id: string;
   name: string;
   popularity: number;
+  preview_url: string;
   images: Images[];
   duration_ms: number;
   type: string;
