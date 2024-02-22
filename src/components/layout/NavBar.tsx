@@ -1,14 +1,14 @@
-import { HStack, Image, Link, Show } from '@chakra-ui/react';
-import { Link as ReactLink } from 'react-router-dom';
-import { IconButton } from '@chakra-ui/react';
-import { useLocation } from 'react-router-dom';
-import LogoIcon from '../../assets/favicon.svg';
-import { useNavigate } from 'react-router-dom';
-import SearchInput from '../common/SearchInput';
-import { IoIosArrowBack } from 'react-icons/io';
-import { RxHamburgerMenu } from 'react-icons/rx';
-import { useState } from 'react';
-import MenuDrawer from './MenuDrawer';
+import { HStack, Image, Link, Show } from "@chakra-ui/react";
+import { Link as ReactLink } from "react-router-dom";
+import { IconButton } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
+import LogoIcon from "../../assets/favicon.svg";
+import { useNavigate } from "react-router-dom";
+import SearchInput from "../common/SearchInput";
+import { IoIosArrowBack } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
+import MenuDrawer from "./MenuDrawer";
 
 function NavBar(): JSX.Element {
   const location = useLocation();
@@ -28,9 +28,9 @@ function NavBar(): JSX.Element {
   }
 
   const shouldRenderSearchInput =
-    !location.pathname.split('/')[2] && location.pathname.split('/')[1] === 'search';
+    !location.pathname.split("/")[2] && location.pathname.split("/")[1] === "search";
 
-  const shouldRenderBackButton = location.pathname.split('/')[2] && true;
+  const shouldRenderBackButton = location.pathname.split("/")[2] && true;
 
   return (
     <>
