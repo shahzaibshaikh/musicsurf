@@ -27,7 +27,7 @@ const AudioTrackPlayer = ({ preview_url, isOpen, onClose, name, image }: Props) 
         <ModalHeader>{name}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Image src={image} />
+          <Image src={image} marginBottom={4} />
           <AudioPlayer
             autoPlay
             src={preview_url}
