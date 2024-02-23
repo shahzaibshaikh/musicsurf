@@ -28,6 +28,7 @@ function TrackCard({ data, count }: TrackCardProps) {
       }}
     >
       <AudioTrackPlayer
+        image={data.album?.images[0].url}
         onClose={onClose}
         isOpen={isOpen}
         preview_url={data.preview_url}

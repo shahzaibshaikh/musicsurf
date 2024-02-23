@@ -1,4 +1,5 @@
 import {
+  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -14,10 +15,11 @@ interface Props {
   preview_url: string;
   isOpen: boolean;
   name: string;
+  image?: string;
   onClose: () => void;
 }
 
-const AudioTrackPlayer = ({ preview_url, isOpen, onClose, name }: Props) => {
+const AudioTrackPlayer = ({ preview_url, isOpen, onClose, name, image }: Props) => {
   return (
     <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
@@ -25,11 +27,12 @@ const AudioTrackPlayer = ({ preview_url, isOpen, onClose, name }: Props) => {
         <ModalHeader>{name}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
+          <Image src={image} />
           <AudioPlayer
             autoPlay
             src={preview_url}
             onPlay={e => console.log("onPlay")}
-
+            style={{ backgroundColor: "black", borderRadius: "10px", color: "white" }}
             // other props here
           />
         </ModalBody>
