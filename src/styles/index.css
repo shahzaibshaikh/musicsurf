@@ -84,3 +84,10 @@ a {
   position: fixed;
   width: 240px;
 }
+
+.glass-container {
+  background: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(7px);
+}

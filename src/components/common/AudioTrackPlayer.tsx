@@ -32,7 +32,12 @@ const AudioTrackPlayer = ({ preview_url, isOpen, onClose, name, image }: Props) 
             autoPlay
             src={preview_url}
             onPlay={e => console.log("onPlay")}
-            style={{ backgroundColor: "black", borderRadius: "10px", color: "white" }}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              borderRadius: "10px",
+              color: "white"
+            }}
             // other props here
           />
         </ModalBody>
